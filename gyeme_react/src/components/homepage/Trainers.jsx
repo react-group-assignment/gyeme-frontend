@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom'
+import './Trainers.css';
 
-export default function TrainerList() {
-
+export default function Trainers() {
     const users = [
         {
             id: 1,
@@ -144,20 +144,17 @@ export default function TrainerList() {
     let trainers = users.filter(isTrainer)
 
     return (
-        <div>
+        <div className='trainers-container'>
             {locations.map((location, index) => (
-                <>
-                    <h2>{location.name}</h2>
-                    <ul>
-                        {trainers
-                            .filter((trainer) => trainer.location_id == location.id)
-                            .map((trainer) => (
-                                <Link to={`/blog/${trainer.id}`}>{trainer.name}</Link>
-                            ))}
-                    </ul>
-                </>
+                <div className='list'>
+                    <h3>{location.name}</h3>
+                    {trainers
+                        .filter((trainer) => trainer.location_id == location.id)
+                        .map((trainer) => (
+                            <a href={'/blogs/' + trainer.id}>{trainer.username}</a>
+                        ))}
+                </div>
             ))}
         </div>
     );
 }
-
