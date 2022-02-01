@@ -1,0 +1,21 @@
+.home-container h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-components {
+    display: flex;
+}
+
+.locations {
+    flex-grow: 1;
+}
+
+.classes {
+    flex-grow: 1;
+}
+
+.trainers {
+    flex-grow: 1;
+}
