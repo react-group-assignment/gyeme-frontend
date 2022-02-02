@@ -54,7 +54,6 @@ export default function TrainersPage() {
                 <h1>Trainers</h1>
                 <h4>View All available Gyeme trainers!</h4>
             </div>
-
             <section>
                 {trainers.map((trainer) => (
                     <div className='trainer'>
@@ -77,8 +76,6 @@ export default function TrainersPage() {
                     </div>
                 ))}
             </section>
-
-
         </>
     )
 }
