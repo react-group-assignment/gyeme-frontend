@@ -9,11 +9,11 @@ export default function Home() {
   return(
       <div className='home-container'>
           <div className='home-components'>
-          <h1 className='header'>Gyeme Fitness Centers</h1>
+            <h1 className='header'>Gyeme Fitness Centers</h1>
             <Classes className='classes' />
             <Locations className='locations' />
             <Trainers className='trainers' />
-          <div className='footer'></div>
+            <div className='footer'></div>
           </div>
       </div>
   )
