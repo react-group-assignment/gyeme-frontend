@@ -2,6 +2,7 @@ import React from 'react';
 import Locations from './Locations.jsx';
 import Classes from './Classes.jsx';
 import Trainers from './Trainers.jsx';
+import Footer from './Footer.jsx'
 import './Home.css';
 
 
@@ -13,7 +14,7 @@ export default function Home() {
             <Classes className='classes' />
             <Locations className='locations' />
             <Trainers className='trainers' />
-            <div className='footer'></div>
+            <Footer className='footer' />
           </div>
       </div>
   )
