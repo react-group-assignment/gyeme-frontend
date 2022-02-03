@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import AddClass from './components/classes/AddClass'
 import ClassesPage from './components/classes/ClassesPage'
 import Classes from './components/homepage/Classes'
 
@@ -9,7 +10,8 @@ function App() {
 
   return (
     <div>
-      <ClassesPage />
+      <AddClass />
+      {/* <ClassesPage /> */}
       {/* <Home/> */}
     </div>
   )
