@@ -1,3 +1,7 @@
+* {
+    margin: 0 auto;
+}
+
 .home-container h1 {
     display: flex;
     align-items: center;
@@ -5,17 +9,27 @@
 }
 
 .home-components {
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "classes locations trainers"
+    "footer footer footer"
+    ;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
-.locations {
-    flex-grow: 1;
+.header {
+    grid-area: header;
 }
 
 .classes {
-    flex-grow: 1;
+    grid-area: classes;
+}
+
+.locations {
+    grid-area: locations;
 }
 
 .trainers {
-    flex-grow: 1;
+    grid-area: trainers;
 }

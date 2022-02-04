@@ -1,18 +1,19 @@
 import React from 'react';
 import Locations from './Locations.jsx';
-import './Home.css';
 import Classes from './Classes.jsx';
 import Trainers from './Trainers.jsx';
+import './Home.css';
 
 
 export default function Home() {
   return(
       <div className='home-container'>
-          <h1>Gyeme Fitness Centers</h1>
           <div className='home-components'>
-            <Classes className='classes'/>
+            <h1 className='header'>Gyeme Fitness Centers</h1>
+            <Classes className='classes' />
             <Locations className='locations' />
-            <Trainers className='trainers'/>
+            <Trainers className='trainers' />
+            <div className='footer'></div>
           </div>
       </div>
   )
