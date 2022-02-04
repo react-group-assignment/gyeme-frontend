@@ -3,25 +3,25 @@ import './Locations.css';
 
 export default function Locations() {
   return(
-    <div className='locations-container'>
-        <div className='location'>
-            <h1>Location 1</h1>
+    <>
+        <div className='location1'>
+            <h2>Lifter Academy</h2>
             <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
-            <p>49 Something Street, Brisbane, QLD</p>
+            <p>Level 3/116 Adelaide St, Brisbane City QLD 4000</p>
             <a href='/'>View Classes</a>
         </div>
-        <div className='location'>
-            <h1>Location 2</h1>
+        <div className='location2'>
+            <h2>The Wide House</h2>
             <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
-            <p>49 Something Street, Brisbane, QLD</p>
-            <a href='/'>View Class</a>
+            <p>1600 Pennsylvania Avenue NW, Washington, DC 20500, United States</p>
+            <a href='/'>View Classes</a>
         </div>
-        <div className='location'>
-            <h1>Location 3</h1>
+        <div className='location3'>
+            <h2>Gains City</h2>
             <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
-            <p>49 Something Street, Brisbane, QLD</p>
-            <a href='/'>View Class</a>
+            <p>2 Jurong East Street 21, 03 - 14, Singapore 609601</p>
+            <a href='/'>View Classes</a>
         </div>
-    </div>
+    </>
   )
 }
