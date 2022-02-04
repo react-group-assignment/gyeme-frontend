@@ -1,11 +1,13 @@
 * {
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
-.home-container h1 {
+.home-container {
     display: flex;
-    align-items: center;
     justify-content: center;
+    text-align: center;
+    margin-bottom: 2vh;
 }
 
 .home-components {
@@ -13,13 +15,18 @@
     grid-template-areas: 
     "header header header"
     "classes locations trainers"
+    "classes locations trainers"
+    "classes locations trainers"
     "footer footer footer"
     ;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 20vw 55vw 20vw ;
+    grid-template-rows: auto 1fr 1fr 1fr auto;
 }
 
 .header {
     grid-area: header;
+    font-size: 9vw;
+    padding-bottom: .2vh;
 }
 
 .classes {
@@ -32,4 +39,24 @@
 
 .trainers {
     grid-area: trainers;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+h2 {
+    font-size: 5vmin;
+}
+
+h3 {
+    font-size: 4vmin;
+}
+
+h4, a {
+    font-size: 3vmin;
+}
+
+p {
+    font-size: 2vmin;
 }
