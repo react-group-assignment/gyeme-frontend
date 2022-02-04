@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import yoga from './images/yoga.jpg'
 import functional from './images/functional.jpg'
 import flexing from './images/flexing.jpg'
@@ -6,29 +7,45 @@ import "./classes_page.css"
 
 
 export default function ClassesPage() {
-    const classes = [
-        {
-            name: "Yoga and meditation",
-            trainer: "Star Flower",
-            membersOnly: true,
-            description: "Join us for this amazing class at 8pm on saturday the 3rd of october",
-            image: yoga
-        },
-        {
-            name: "Functional Strength Training",
-            trainer: "Jacked Johnson",
-            membersOnly: true,
-            description: "Join us for this amazing class at 9pm on saturday the 3rd of october",
-            image: functional
-        },
-        {
-            name: "Professional Flexing",
-            trainer: "the Hammer",
-            membersOnly: false,
-            description: "Join us for this amazing class at 1am on saturday the 3rd of october",
-            image: flexing
-        },
-    ]
+    // const classes = [
+    //     {
+    //         name: "Yoga and meditation",
+    //         trainer: "Star Flower",
+    //         membersOnly: true,
+    //         description: "Join us for this amazing class at 8pm on saturday the 3rd of october",
+    //         image: yoga
+    //     },
+    //     {
+    //         name: "Functional Strength Training",
+    //         trainer: "Jacked Johnson",
+    //         membersOnly: true,
+    //         description: "Join us for this amazing class at 9pm on saturday the 3rd of october",
+    //         image: functional
+    //     },
+    //     {
+    //         name: "Professional Flexing",
+    //         trainer: "the Hammer",
+    //         membersOnly: false,
+    //         description: "Join us for this amazing class at 1am on saturday the 3rd of october",
+    //         image: flexing
+    //     },
+    // ]
+    
+    const [classes, setClasses] = useState("")
+
+    const getClasses = async() => {
+        try {           
+            const response = await fetch("http://localhost:5000/classes")
+            const jsonData = await response.json()
+            setClasses(jsonData)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    useEffect(() => {
+        getClasses()
+    }, [])
 
     return (
         <>
