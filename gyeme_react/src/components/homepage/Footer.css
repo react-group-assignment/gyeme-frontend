@@ -4,12 +4,14 @@
     display: flex;
     flex-direction: column;
     border: solid 0.2vw black;
+    padding-bottom: 1vh;
 }
 
 .footer-reception {
     width: 100%;
     grid-column: 2 / 3;
     border: solid 0.2vw black;
+    padding-bottom: 1vh;
 }
 
 .reception-list {
@@ -21,23 +23,28 @@
     width: 100%;
     grid-column: 3 / 4;
     border: solid 0.2vw black;
+    padding-bottom: 1vh;
 }
 
 .icon {
-    width: 3vmax;
-    position: relative;
+    width: 3vw;
 }
 
 .icon-big {
-    width: 8vmax;
-    padding: .5vmax;
+    width: 9vw;
+    padding: .4vmax;
 }
 
-h2, .footer-contact p {
-    margin-bottom: 1vmax;
+h4 {
+    margin-bottom: .5em;
+}
+
+.footer-contact div p {
+    font-size: 1.5vw;
+    margin-bottom: .5em;
 }
 
 .reception-list p {
-    font-size: 2.5vmin;
-    margin-bottom: .5vmax;
+    font-size: 1.8vw;
+    margin-bottom: .5em
 }
