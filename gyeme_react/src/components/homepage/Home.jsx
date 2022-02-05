@@ -6,7 +6,6 @@ import Trainers from './Trainers.jsx';
 import Footer from './Footer.jsx';
 
 import './Home.css';
-import Footer from './Footer.jsx'
 
 export default function Home() {
 
