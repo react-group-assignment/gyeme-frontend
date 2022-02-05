@@ -41,6 +41,11 @@ p {
     height: min-content;
     margin-top: 10%;
     border: 1px solid #A43DA4;
+    font-size: 2vh;
+}
+
+strong{
+    font-size: 3vh;
 }
 
 .members-only{
@@ -51,7 +56,13 @@ p {
     color: #A27E2A;
 }
 
-button {
+.buttons {
+    grid-column-start: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-class {
     font-size: 100%;
     grid-column-start: 2;
     justify-self: center;
@@ -65,9 +76,14 @@ a{
     color: #A27E2A;
 }
 
+@media all and (max-width: 470px){
+    .buttons{
+        grid-column-start: 1;
+    }
+}
+
 @media all and (min-width: 1100px) {
     .trainer{
-        color: green;
         border: 1px solid #A43DA4;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -88,4 +104,18 @@ a{
         justify-content: center;
     }
 
+}
+
+.icon{
+    background-color: #E0E0E0;
+    grid-column-start: 2;
+    justify-self: center;
+}
+
+.add-class {
+    height: 30px;
+    font-size: 1.6vh;
+    justify-self: center;
+    background-color: #A43DA4;
+    color: #181F25;
 }

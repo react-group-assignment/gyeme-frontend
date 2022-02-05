@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import yoga from './images/yoga.jpg'
 import functional from './images/functional.jpg'
 import flexing from './images/flexing.jpg'
+import trash from './images/trash.png'
 import "./classes_page.css"
 
 
@@ -47,25 +48,32 @@ export default function ClassesPage() {
         getClasses()
     }, [])
 
+
+    const userType = "trainer"
+
     return (
         <>
             <div className='heading'>
+                
                 <h1>Classes</h1>
                 <h4>View All available Gyeme classes!</h4>
+                {userType == "trainer" && <button className='add-class'>Add a class!</button>}
             </div>
             <section>
                 {classes.map((element) => (
-                    <div className='class'>
+                    <div className='class'> 
+                    
                         <figure>
-                            <figcaption><strong>{element.name}</strong></figcaption>
+                            <figcaption><strong>{element.name}</strong></figcaption>    
                             <img className='display-picture' src={element.image} width={300} height={320} alt="Picture of class" />
                             <figcaption><a href="/">Sign up for this class!</a></figcaption>
                         </figure>
-                        
-                    <p>{element.description} hosted by <strong>{element.trainer}</strong></p>
-                    <button>book this class!</button>
-                    {element.membersOnly == true ? <p className='members-only'>members only</p> : <p className='members-only'>free to public!</p>}
-                    
+                        <p>{element.description} hosted by <strong>{element.trainer}</strong></p>
+                        <div className='buttons'>
+                            {userType == "trainer" &&<img src={trash} width={40} height={40} className='icon' />}
+                            <button className='book-class'>book this class!</button>
+                            {element.membersOnly == true ? <p className='members-only'>members only</p> : <p className='members-only'>free to public!</p>}
+                        </div>
                     </div>
                 ))}
             </section>

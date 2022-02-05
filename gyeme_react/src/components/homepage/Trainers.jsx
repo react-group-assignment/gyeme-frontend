@@ -144,10 +144,10 @@ export default function Trainers() {
     let trainers = users.filter(isTrainer)
 
     return (
-        <div className='trainers-container'>
+        <>
             {locations.map((location, index) => (
-                <div className='list'>
-                    <h3>{location.name}</h3>
+                <div className='trainer-list'>
+                    <h3>Trainers</h3>
                     {trainers
                         .filter((trainer) => trainer.location_id == location.id)
                         .map((trainer) => (
@@ -155,6 +155,6 @@ export default function Trainers() {
                         ))}
                 </div>
             ))}
-        </div>
+        </>
     );
 }
