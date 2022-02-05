@@ -33,7 +33,7 @@ function App() {
           path="/profile"
         />
         <Route 
-          path="/classes/new
+          path="/classes/new"
           element={<AddClass />}
         />
       </Routes>
