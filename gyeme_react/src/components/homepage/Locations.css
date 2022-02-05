@@ -1,6 +1,33 @@
-.location {
+.location1 {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    grid-row: 2 / 3;
+    border: solid 0.2vw black;
+    padding-bottom: 1vmax;
+}
+
+.location2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: 3 / 4;
+    border: solid 0.2vw black;
+    padding-bottom: 1vmax;
+}
+
+.location3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-row: 4 / 5;
+    border: solid 0.2vw black;
+    padding-bottom: 1vmax;
+}
+
+.location-img {
+    width: 40vw;
 }
