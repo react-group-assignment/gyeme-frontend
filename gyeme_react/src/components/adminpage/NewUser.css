@@ -13,7 +13,7 @@ h1 {
     padding: 10px;
 }
 
-button {
+.create-button {
     padding: 15px 15%;
     display: flex;
     justify-content: center;

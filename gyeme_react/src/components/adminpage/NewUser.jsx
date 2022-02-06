@@ -21,7 +21,7 @@ export default function NewUser() {
                     <option value="Admin">Admin</option>
                 </select>
             
-                <button>Create</button>
+                <button className='create-button'>Create</button>
             </div>
           </form>
       </div>
