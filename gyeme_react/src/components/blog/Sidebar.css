@@ -3,6 +3,7 @@
     height: 80vh;
     position: sticky;
     top: 15vh;
+    padding-left: 2vw;
 }
 
 .page-head {
@@ -19,6 +20,6 @@
 }
 
 .image {
-    max-width: 22vw;
-    max-height: 22vh;
+    max-width: 20vw;
+    max-height: 20vh;
 }

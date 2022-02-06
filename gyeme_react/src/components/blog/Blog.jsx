@@ -1,7 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar.jsx';
 import Articles from './Articles.jsx';
-import Comments from './Comments.jsx';
 import './Blog.css';
 
 export default function Blog() {
@@ -10,7 +9,6 @@ export default function Blog() {
             <div className='blog-components'>
                 <Sidebar className='sidebar' />
                 <Articles className='articles' />
-                <Comments className='comments' />
             </div>
         </div>
     )
