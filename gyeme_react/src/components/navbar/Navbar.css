@@ -1,4 +1,5 @@
 .nav {
+    max-height: 15vh;
     display: flex;
     background-color: rgb(40, 40, 40);
     list-style: none; 
@@ -16,7 +17,7 @@
     padding: 1rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    font-size: 3vw;
+    font-size: 3.5vmin;
 }
 
 @media screen and (min-width: 481px) and (max-width: 780px) {
