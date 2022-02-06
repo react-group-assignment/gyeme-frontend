@@ -11,26 +11,43 @@ import './add-class.css'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function AddClass() {
+  // Image 
   const [fileInputState, setFileInputState] = useState("")
-  // const [selectedFile, setSelectedFile] = useState("")
   const [previewSource, setPreviewSource] = useState()
+
+  // Viewport sizes
   const { height, width } = useWindowDimensions();
+  
+  // Class text fields
+  const [className, setClassName] = useState("")
+  const [classDescription, setClassDescription] = useState("")
+  const [membersOnly, setMembersOnly] = useState(true)
 
-
+  //Handle submit sets up the class object and calls create class
   function handleSubmit(e) {
     e.preventDefault()
-    console.log("!!!!!!!!!")
+
+    // can not submit without an image - this validation needs to be better
     if (!previewSource) {
       return
     }
-    uploadImage(previewSource)
-  }
 
-  const uploadImage = async (base64EncodedImage) => {
+    const image = previewSource
+    const newClass = {
+      name: className,
+      description: classDescription,
+      members_only: membersOnly,
+      image: image 
+    }
+    createClass(newClass)
+  }
+  
+  //Posts the class to the database
+  const createClass = async (newClass) => {
     try {
-      await fetch('http://localhost:5000/api/upload', {
+      await fetch('http://localhost:5000/classes', {
         method: 'POST',
-        body: JSON.stringify({ data: base64EncodedImage }),
+        body: JSON.stringify(newClass),
         headers: { 'Content-Type': 'application/json' }
       })
       // Below will reset the image after uploading
@@ -41,12 +58,13 @@ export default function AddClass() {
     }
   }
 
+  // handleFileInputChange updates the selected previewImage
   const handleFileInputChange = (e) => {
     const file = e.target.files[0]
     previewFile(file)
-
   }
 
+  // previewFile is to view the selected image on the screen
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file)
@@ -58,22 +76,28 @@ export default function AddClass() {
   if (width <= 1000) {
     return (
       <div className='container'>
-        <form onSubmit={handleSubmit} >
+        <form  >
           <img src={Class} alt="image of a gym class" height="240px" />
           <input type="file" name="image" value={fileInputState} onChange={handleFileInputChange} />
-          <input type="submit" value="upload an image" />
+          {/* <input type="submit" value="upload an image" /> */}
         </form>
+
         {previewSource && (<img src={previewSource} alt='your image' height="240px" width='240px' />)}
-        <form className='form-items' action="submit">
+
+        <form onSubmit={handleSubmit} className='form-items' action="submit">
           <div>
-            <label htmlFor="">Class name</label>
-            <input type="text" />
+            <label>Class name</label>
+            <input type="text" required value={className} onChange={(e) => setClassName(e.target.value)} />
           </div>
           <div >
-            <label htmlFor="">Class description</label>
-            <textarea></textarea>
+            <label >Class description</label>
+            <textarea required value={classDescription} onChange={(e) => setClassDescription(e.target.value)} ></textarea>
           </div>
-          <input className='submit' type="button" value="Create This Class!" />
+          <select value={membersOnly} onChange={(e) => setMembersOnly(e.target.value)}>
+            <option value={true} >members only</option>
+            <option value={false} >open to public</option>
+          </select>
+          <input className='submit' type="submit" value="Create This Class!" />
         </form>
         <a href="/">back to classes</a>
       </div>
