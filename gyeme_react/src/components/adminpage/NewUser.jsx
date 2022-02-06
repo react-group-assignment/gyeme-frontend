@@ -7,14 +7,18 @@ export default function NewUser() {
           <h1>Create A New User</h1>
           <form>
             <div className='form'>
-                <label>Username: </label>
+
+                <label className='text-labels'>Username: </label>
                 <input></input>
 
-                <label for="country">Country</label>
-                <select id="country" name="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
+                <label className='text-labels'>Password: </label>
+                <input></input>
+
+                <label for="Role" className='text-labels'>Role:</label>
+                <select id="role-select" name="role-select">
+                    <option value="Member">Member</option>
+                    <option value="Trainer">Trainer</option>
+                    <option value="Admin">Admin</option>
                 </select>
             
                 <button>Create</button>
