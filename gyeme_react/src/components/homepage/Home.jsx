@@ -2,11 +2,13 @@ import React from 'react';
 import Classes from './Classes.jsx';
 import Locations from './Locations.jsx';
 import Trainers from './Trainers.jsx';
+
 import Footer from './Footer.jsx';
+
 import './Home.css';
 
-
 export default function Home() {
+
   return (
     <div className='home-container'>
       <div className='home-components'>
