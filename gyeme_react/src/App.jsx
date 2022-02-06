@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Home from './components/homepage/Home';
 import Navbar from './components/navbar/Navbar.jsx';
+import Blog from './components/blog/Blog.jsx';
 
 function App() {
   return (  
@@ -21,6 +22,7 @@ function App() {
         />
         <Route 
           path="/blog"
+          element={<Blog/>}
         />
         <Route 
           path="/profile"

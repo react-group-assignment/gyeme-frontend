@@ -1,0 +1,21 @@
+.blog-container {
+    display: flex;
+    justify-content: center;
+}
+
+.blog-components {
+    display: grid;
+    grid-template-columns: 1fr 50vw 1.5fr ;
+}
+
+.sidebar {
+    grid-column: 0 / 1;
+}
+
+.articles {
+    grid-column: 1 / 2;
+}
+
+.comments {
+    grid-column: 2 / 3;
+}

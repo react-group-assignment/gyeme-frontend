@@ -145,7 +145,7 @@ export default function Trainers() {
 
     return (
         <>
-            {locations.map((location, index) => (
+            {locations.map((location) => (
                 <div className='trainer-list'>
                     <h3>Trainers</h3>
                     {trainers
