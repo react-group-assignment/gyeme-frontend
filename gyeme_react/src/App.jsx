@@ -9,6 +9,7 @@ import ClassesPage from './components/classes/ClassesPage'
 import Classes from './components/homepage/Classes'
 import TrainersPage from './components/trainers/TrainersPage'
 import Profile from './components/authentication/Profile';
+import PrivateRoute from './components/authentication/PrivateRoute';
 
 function App() {
   return (  

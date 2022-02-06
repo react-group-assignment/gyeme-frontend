@@ -4,6 +4,9 @@ import './index.css'
 import App from './App'
 import { Auth0Provider } from '@auth0/auth0-react'
 
+
+// These are my auth0 credentials which need to be in a .env file
+  //the dotenv module uses commonjs require syntax so it did not work -need to fix
 // const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const domain = 'dev-byc3adl2.us.auth0.com'
 // const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
