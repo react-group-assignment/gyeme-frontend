@@ -8,6 +8,7 @@ import AddClass from './components/classes/AddClass'
 import ClassesPage from './components/classes/ClassesPage'
 import Classes from './components/homepage/Classes'
 import TrainersPage from './components/trainers/TrainersPage'
+import Profile from './components/authentication/Profile';
 
 function App() {
   return (  
@@ -31,6 +32,7 @@ function App() {
         />
         <Route 
           path="/profile"
+          element={<Profile />}
         />
         <Route 
           path="/classes/new"
