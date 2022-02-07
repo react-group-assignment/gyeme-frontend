@@ -5,6 +5,8 @@ import Admin from './components/adminpage/Admin.jsx';
 import NewUser from './components/adminpage/NewUser.jsx';
 import Home from './components/homepage/Home';
 import Navbar from './components/navbar/Navbar.jsx';
+import Login from './components/loginpage/Login';
+import Notification from './components/notifications/Notification.jsx';
 
 function App() {
 
@@ -68,6 +70,14 @@ function App() {
         <Route
           path="/users/new"
           element={<NewUser add={addUser}/>}
+        />
+        <Route
+          path="/login"
+          element={<Login/>}
+        />
+        <Route
+          path="/notification"
+          element={<Notification/>}
         />
       </Routes>
     </BrowserRouter>
