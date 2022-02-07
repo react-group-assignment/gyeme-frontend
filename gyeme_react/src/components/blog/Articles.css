@@ -1,0 +1,139 @@
+.articles-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5vw 3vh 5vw;
+    width: 100%;
+}
+
+.post{
+   margin: 0;
+   display: grid;
+   grid-template-columns: 50vw 1fr;
+   margin-top: 2vh;
+   max-height: 100vh;
+}
+
+.article, .comments {
+    display: flex;
+    flex-direction: column;
+    border: solid 3px black;
+}
+
+.article {
+    padding: 2vw;
+    max-height: inherit;
+}
+
+.comments {
+    width: 100%;
+    padding: 1vh 1vw;
+    overflow-y: scroll;
+    max-height: inherit;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.comments::-webkit-scrollbar{
+    display: none;
+}
+
+.comment {
+    border: solid 2px black;
+    padding: .5vw;
+    margin: 1vh 0;
+}
+
+.article-header {
+    margin: 0;
+    display: grid;
+    grid-template-areas: 
+    "avatar author"
+    "avatar datetime"
+    ;
+    grid-template-columns: 8vw 1fr;
+    grid-template-rows: 5vw 1fr;
+}
+
+.comment-header {
+    margin: 0;
+    display: grid;
+    grid-template-areas: 
+    "avatar author"
+    "avatar datetime"
+    ;
+    grid-template-columns: 4vw 1fr;
+}
+
+.article-content {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.article-content::-webkit-scrollbar {
+    display: none;
+}
+
+.article-avatar {
+    grid-area: avatar;
+    width: 8vw;
+    height: 8vw;
+    border: solid 2px black;
+}
+
+.article-avatar-small {
+    grid-area: avatar;
+    width: 4vw;
+    height: 4vw;
+    border: solid 1px black;
+}
+
+.article-author {
+    margin: 0;
+    grid-area: author;
+    padding-left: 1rem ;
+    font-size: 2.5vw;
+}
+
+.article-author-small {
+    margin: 0;
+    grid-area: author;
+    padding-left: 1rem ;
+    font-size: 1.5vw;
+}
+
+.article-datetime {
+    margin: 0;
+    grid-area: datetime;
+    padding-left: 1rem;
+    font-size: 1.5vw;
+}
+
+.article-datetime-small {
+    margin: 0;
+    grid-area: datetime;
+    padding-left: 1rem;
+    font-size: 0.75vw;
+}
+
+.article-title {
+    margin: 0;
+    font-size: 2vw;
+    padding: 1rem 0.5rem;
+}
+
+.article-image {
+    border: solid 1px black;
+    max-width: 45vw;
+    max-height: 20vh;
+    margin-left: 1vw;
+}
+
+.article-body {
+    padding: 1vh 1vw 0 1vw;
+    margin: 0;
+}
+
+.comment-body {
+    padding-bottom: .5vh .5vw 0 .5vw;
+}

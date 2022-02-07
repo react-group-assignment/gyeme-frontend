@@ -23,7 +23,7 @@
     grid-template-rows: auto 1fr 1fr 1fr auto;
 }
 
-.header {
+.home-header {
     grid-area: header;
     font-size: 9vw;
     padding-bottom: .2vh;

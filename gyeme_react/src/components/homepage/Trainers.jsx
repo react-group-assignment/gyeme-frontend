@@ -145,8 +145,8 @@ export default function Trainers() {
 
     return (
         <>
-            {locations.map((location, index) => (
-                <div className='trainer-list'>
+            {locations.map((location) => (
+                <div className='homepage-trainer-list'>
                     <h3>Trainers</h3>
                     {trainers
                         .filter((trainer) => trainer.location_id == location.id)
