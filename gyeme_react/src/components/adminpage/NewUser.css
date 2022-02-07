@@ -35,3 +35,9 @@ input, select {
     font-size: 18px;
     margin: 8px, 0px;
 }
+
+@media screen and (max-width: 900px) {
+    .form {
+        width: 80%;
+    }
+}
