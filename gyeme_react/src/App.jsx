@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import Admin from './components/adminpage/Admin.jsx';
 import NewUser from './components/adminpage/NewUser.jsx';
 import Home from './components/homepage/Home';
 import Navbar from './components/navbar/Navbar.jsx';
 import Login from './components/loginpage/Login';
 import Notification from './components/notifications/Notification.jsx';
+import stateReducer from './stateReducer';
 
-function App() {
-
-  const [users, setUsers] = useState([
+const initialState = {
+  users: [
     {
       id: 1,
       name: "Nathan",
@@ -29,19 +29,13 @@ function App() {
       password: 'password123',
       role: "Member"
     }
-  ])
+  ]
 
-  const addUser = (username, password, role) => {
-    const newUser = {
-      id: 4,
-      name: username,
-      password: password,
-      role: role
-    }
-    const newUsers = [...users, newUser]
-    setUsers(newUsers)
-  }
+}
 
+function App() {
+
+  const [state, dispatch] = useReducer(stateReducer, initialState)
 
   return (  
     <BrowserRouter>
@@ -65,11 +59,11 @@ function App() {
         />
         <Route
           path="/admin"
-          element={<Admin users={users} />}
+          element={<Admin users={state.users} />}
         />
         <Route
           path="/users/new"
-          element={<NewUser add={addUser}/>}
+          element={<NewUser dispatch={dispatch} />}
         />
         <Route
           path="/login"
