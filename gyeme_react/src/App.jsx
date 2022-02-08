@@ -9,21 +9,28 @@ import ClassesPage from './components/classes/ClassesPage'
 import Classes from './components/homepage/Classes'
 import TrainersPage from './components/trainers/TrainersPage'
 import Profile from './components/authentication/Profile';
-import PrivateRoute from './components/authentication/PrivateRoute';
+import { UserContext } from './hooks/UserContext'
+
 
 function App() {
+  const [roleId, setRoleId] = useState("hello world")
+
   return (  
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route 
           path="/"
-          element={<Home/>}
+          element={<Home />}
         />
+
+      <UserContext.Provider value={value, setValue}>
         <Route 
           path="/trainers"
           element={<TrainersPage />}
-        />
+        />   
+      </ UserContext.Provider>
+
         <Route 
           path="/classes"
           element={<ClassesPage />}

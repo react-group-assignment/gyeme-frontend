@@ -4,6 +4,8 @@ import './index.css'
 import App from './App'
 import { Auth0Provider } from '@auth0/auth0-react'
 
+import useWindowDimensions from './hooks/useWindowDimensions'
+
 
 // These are my auth0 credentials which need to be in a .env file
   //the dotenv module uses commonjs require syntax so it did not work -need to fix
@@ -15,7 +17,7 @@ const clientId = 'LNNZQfPtrZNq1nm7ERCLwPwBQqShaJFU'
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      domain={domain}
+      domain={domain} 
       clientId={clientId}
       redirectUri={window.location.origin}
     >

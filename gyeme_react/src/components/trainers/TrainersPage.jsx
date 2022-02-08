@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ronny from './trainer_images/ronny_cop.jpg'
 import jacked_johnson from './trainer_images/jacked_johnson.jpg'
 import donald_pump from './trainer_images/donald_pump.jpg'
@@ -8,6 +8,7 @@ import Classes from '../homepage/Classes';
 
 //for each trainer: render the trainer div
 export default function TrainersPage() {
+
     const trainers = [
         {
             trainerName: "Ronny",
