@@ -29,22 +29,6 @@
     padding-bottom: .2vh;
 }
 
-.classes {
-    grid-area: classes;
-}
-
-.locations {
-    grid-area: locations;
-}
-
-.trainers {
-    grid-area: trainers;
-}
-
-.footer {
-    grid-area: footer;
-}
-
 h2 {
     font-size: 5vmin;
 }
