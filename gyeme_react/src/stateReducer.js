@@ -11,5 +11,10 @@ export default function (currentState, action) {
                 ...currentState,
                 users: [newUser, ...currentState.users]
             }
+        case "deleteUser":
+            return {
+                ...currentState,
+                users: currentState.users.filter((user, index) => index !== action.payload)
+            }
     }
 }
