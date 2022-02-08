@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import UserList from './UserList';
 import { useState } from 'react';
 import './Admin.css';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Admin({ users }) {
-    
-    const navigate = useNavigate()
-    console.log(users)
+
+export default function Admin() {
+    const navigate = useNavigate();
 
     return(
         <div>
@@ -18,7 +17,7 @@ export default function Admin({ users }) {
                     Create New Users
                 </button>
             </div>
-            <UserList users={users}/>
+            <UserList />
         </div>
     )
 }
