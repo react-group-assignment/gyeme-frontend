@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useReducer } from 'react'
 import stateReducer from './stateReducer';
-import context from './context';
+import appContext from './appContext';
 import './App.css'
 
 import Home from './components/homepage/Home';
@@ -15,23 +15,7 @@ import TrainerBlog from './components/blog/TrainerBlog';
 const initialState = {
   users: [],
   classes: [],
-  locations: [
-    {
-      id: 1,
-      name: "Lifter Academy",
-      address: "Level 3/116 Adelaide St, Brisbane City QLD 4000"
-    },
-    {
-      id: 2,
-      name: "The Wide House",
-      address: "1600 Pennsylvania Avenue NW, Washington, DC 20500, United States"
-    },
-    {
-      id: 3,
-      name: "Gains City",
-      address: "2 Jurong East Street 21, 03 - 14, Singapore 609601"
-    }
-  ],
+  locations: [],
   currentUser: null,
   posts: [],
   comments: []
@@ -39,19 +23,33 @@ const initialState = {
 
 function App() {
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  const { users, classes, locations, currentUser, posts, comments } = state;
 
   useEffect(async () => {
-    const res = await fetch('http://localhost:5000/users')
-    const data = await res.json
+    const users_res = await fetch('http://localhost:5000/users')
+    const users_data = await users_res
+    console.log(users_data)
     dispatch({
-      action: 'setUsers',
-      data
-    })
+      type: 'setUsers',
+      data: users_data
+    });
+
+    const classes_res = await fetch('http://localhost:5000/classes')
+    const classes_data = await classes_res
+    dispatch({
+      type: 'setClasses',
+      data: classes_data
+    });
+
+    const locations_res = await fetch('http://localhost:5000/locations')
+    const locations_data = await locations_res
+    dispatch({
+      type: 'setLocations',
+      data: locations_data
+    });
   }, [])
 
   return (
-    <context.Provider value={{ state, dispatch }}>
+    <appContext.Provider value={{ state, dispatch }}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -84,7 +82,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-    </context.Provider>
+    </appContext.Provider>
   )
 }
 

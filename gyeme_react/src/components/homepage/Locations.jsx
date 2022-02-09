@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import context from '../../context';
+import context from '../../appContext';
 import './Locations.css';
 
 export default function Locations() {
@@ -7,7 +7,7 @@ export default function Locations() {
 
   return(
     <>
-      {locations.map((location) => (
+      {locations.map(location => (
         <div id={`location${location.id}`} className='location'>
             <h2>{location.name}</h2>
             <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>

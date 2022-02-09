@@ -10,5 +10,15 @@ export default function (currentState, action) {
                 ...currentState,
                 users: action.data
             }
+        case "setLocations":
+            return {
+                ...currentState,
+                locations: action.data
+            }
+        case "setClasses":
+            return {
+                ...currentState,
+                classes: action.data
+            }
     }
 }
