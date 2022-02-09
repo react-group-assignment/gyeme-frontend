@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import CheckRoleId from "../../hooks/CheckRoleId";
+import { UserContext } from "../../hooks/UserContext";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -9,6 +11,8 @@ const Profile = () => {
   const [locationId, setLocationId] = useState(1)
 
   console.log(user)
+  user && CheckRoleId(user.email)
+
   function handleSubmit(e) {
     e.preventDefault()
 

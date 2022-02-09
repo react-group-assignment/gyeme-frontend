@@ -13,40 +13,38 @@ import { UserContext } from './hooks/UserContext'
 
 
 function App() {
-  const [roleId, setRoleId] = useState("hello world")
+  const [roleId, setRoleId] = useState(null)
 
-  return (  
+  return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route 
-          path="/"
-          element={<Home />}
-        />
-
-      <UserContext.Provider value={value, setValue}>
-        <Route 
-          path="/trainers"
-          element={<TrainersPage />}
-        />   
+      <UserContext.Provider value={{ roleId, setRoleId }}>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/trainers"
+            element={<TrainersPage />}
+          />
+          <Route
+            path="/classes"
+            element={<ClassesPage />}
+          />
+          <Route
+            path="/blog"
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+          <Route
+            path="/classes/new"
+            element={<AddClass />}
+          />
+        </Routes>
       </ UserContext.Provider>
-
-        <Route 
-          path="/classes"
-          element={<ClassesPage />}
-        />
-        <Route 
-          path="/blog"
-        />
-        <Route 
-          path="/profile"
-          element={<Profile />}
-        />
-        <Route 
-          path="/classes/new"
-          element={<AddClass />}
-        />
-      </Routes>
     </BrowserRouter>
   )
 }
