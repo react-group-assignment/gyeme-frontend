@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NewUser.css';
 import { useState } from 'react';
+import gymContext from '../../gymContext';
 
-export default function NewUser({ dispatch }) {
+
+export default function NewUser() {
     const navigate = useNavigate();
+    const { dispatch } = useContext(gymContext);
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [role, setRole] = useState(['Member', 'Trainer', 'Admin']);
@@ -18,7 +21,6 @@ export default function NewUser({ dispatch }) {
             password: password,
             role: role,
         });
-        console.log('done')
         navigate("/admin")
     }
 
