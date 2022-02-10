@@ -1,0 +1,14 @@
+
+.titles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titles h1 {
+    margin-left: 20px;
+}
+
+.titles button {
+    margin-right: 20px;
+}

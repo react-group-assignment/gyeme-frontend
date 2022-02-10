@@ -1,0 +1,43 @@
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.form {
+    background-color: #e1e1e1;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+}
+
+.create-button {
+    padding: 15px 15%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 2px, solid, black;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.text-labels {
+    font-size: 18px;
+    margin: 8px, 0px;
+}
+
+@media screen and (max-width: 900px) {
+    .form {
+        width: 80%;
+    }
+}
