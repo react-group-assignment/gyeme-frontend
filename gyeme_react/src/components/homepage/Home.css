@@ -23,26 +23,10 @@
     grid-template-rows: auto 1fr 1fr 1fr auto;
 }
 
-.header {
+.home-header {
     grid-area: header;
     font-size: 9vw;
     padding-bottom: .2vh;
-}
-
-.classes {
-    grid-area: classes;
-}
-
-.locations {
-    grid-area: locations;
-}
-
-.trainers {
-    grid-area: trainers;
-}
-
-.footer {
-    grid-area: footer;
 }
 
 h2 {

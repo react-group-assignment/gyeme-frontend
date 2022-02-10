@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react'
 import './App.css'
 import { useEffect, useReducer, useState } from 'react';
 import Admin from './components/adminpage/Admin.jsx';
@@ -7,6 +6,7 @@ import NewUser from './components/adminpage/NewUser.jsx';
 import Home from './components/homepage/Home';
 import Navbar from './components/navbar/Navbar.jsx';
 import Blog from './components/blog/Blog.jsx';
+import TrainerBlog from './components/blog/TrainerBlog';
 import AddClass from './components/classes/AddClass'
 import ClassesPage from './components/classes/ClassesPage'
 import Classes from './components/homepage/Classes'
@@ -114,6 +114,10 @@ function App() {
           <Route
             path="/classes/new"
             element={<AddClass />}
+          />
+          <Route
+            path="/blog/:id"
+            element={<TrainerBlog />}
           />
         </Routes>
       </BrowserRouter>

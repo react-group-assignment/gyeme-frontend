@@ -8,10 +8,10 @@ export default function Sidebar() {
                 <h3>Blog Page</h3>
                 <p>What's happening at Gyeme?</p>
             </div>
-            <div className='images'>
-                <img className='image' src="/src/Images/blog_1.jpg" alt="A happy trainer" />
-                <img className='image' src="/src/Images/blog_2.jpg" alt="A happy trainer training a happy member" />
-                <img className='image' src="/src/Images/blog_3.jpg" alt="Another happy trainer training another happy member" />
+            <div className='blog-images'>
+                <img className='blog-image' src="/src/Images/blog_1.jpg" alt="A happy trainer" />
+                <img className='blog-image' src="/src/Images/blog_2.jpg" alt="A happy trainer training a happy member" />
+                <img className='blog-image' src="/src/Images/blog_3.jpg" alt="Another happy trainer training another happy member" />
             </div>
         </div>
     )

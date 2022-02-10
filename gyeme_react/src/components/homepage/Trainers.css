@@ -1,4 +1,4 @@
-.trainer-list {
+.homepage-trainer-list {
     width: 100%;
     border: solid 0.2vw black;
     display: flex;
@@ -7,4 +7,19 @@
     align-items: center;
     font-size: 1.5vmax;
     padding: 1vw;
+}
+
+#homepage-trainer-list1 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+#homepage-trainer-list2 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+#homepage-trainer-list3 {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
 }

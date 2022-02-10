@@ -48,10 +48,11 @@
     display: grid;
     grid-template-areas: 
     "avatar author"
-    "avatar datetime"
+    "avatar title"
     ;
     grid-template-columns: 8vw 1fr;
-    grid-template-rows: 5vw 1fr;
+    grid-template-rows: 1.2fr 1fr;
+    margin-bottom: 2vh;
 }
 
 .comment-header {
@@ -59,9 +60,8 @@
     display: grid;
     grid-template-areas: 
     "avatar author"
-    "avatar datetime"
     ;
-    grid-template-columns: 4vw 1fr;
+    grid-template-columns: 1.2fr 1fr;
 }
 
 .article-content {
@@ -74,52 +74,38 @@
     display: none;
 }
 
-.avatar {
+.article-avatar {
     grid-area: avatar;
     width: 8vw;
     height: 8vw;
     border: solid 2px black;
 }
 
-.avatar-small {
+.article-avatar-small {
     grid-area: avatar;
     width: 4vw;
     height: 4vw;
     border: solid 1px black;
 }
 
-.author {
+.article-author {
     margin: 0;
     grid-area: author;
     padding-left: 1rem ;
     font-size: 2.5vw;
 }
 
-.author-small {
+.article-author-small {
     margin: 0;
     grid-area: author;
     padding-left: 1rem ;
     font-size: 1.5vw;
 }
 
-.datetime {
-    margin: 0;
-    grid-area: datetime;
-    padding-left: 1rem;
-    font-size: 1.5vw;
-}
-
-.datetime-small {
-    margin: 0;
-    grid-area: datetime;
-    padding-left: 1rem;
-    font-size: 0.75vw;
-}
-
 .article-title {
     margin: 0;
-    font-size: 2vw;
-    padding: 1rem 0.5rem;
+    padding-left: 1rem;
+    font-size: 2vw
 }
 
 .article-image {

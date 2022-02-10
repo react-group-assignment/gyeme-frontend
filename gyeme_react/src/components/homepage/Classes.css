@@ -25,13 +25,13 @@
     border: solid 0.2vw black;
 }
 
-.class-list {
+.homepage-class-list {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.class-list p {
+.homepage-class-list p {
     font-size: 2.5vw;
 }
 

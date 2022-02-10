@@ -52,7 +52,6 @@ export default function ClassesPage() {
         if (user) CheckRoleId(user.email)
     }, [])
 
-
     const userType = "trainer"
 
     return (
