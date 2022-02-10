@@ -8,29 +8,6 @@ import "./classes_page.css"
 
 
 export default function ClassesPage() {
-    // const classes = [
-    //     {
-    //         name: "Yoga and meditation",
-    //         trainer: "Star Flower",
-    //         membersOnly: true,
-    //         description: "Join us for this amazing class at 8pm on saturday the 3rd of october",
-    //         image: yoga
-    //     },
-    //     {
-    //         name: "Functional Strength Training",
-    //         trainer: "Jacked Johnson",
-    //         membersOnly: true,
-    //         description: "Join us for this amazing class at 9pm on saturday the 3rd of october",
-    //         image: functional
-    //     },
-    //     {
-    //         name: "Professional Flexing",
-    //         trainer: "the Hammer",
-    //         membersOnly: false,
-    //         description: "Join us for this amazing class at 1am on saturday the 3rd of october",
-    //         image: flexing
-    //     },
-    // ]
     
     const [classes, setClasses] = useState("")
 
@@ -39,7 +16,7 @@ export default function ClassesPage() {
             const response = await fetch("http://localhost:5000/classes")
             const jsonData = await response.json()
             setClasses(jsonData)
-            console.log(classes)
+            // console.log(classes)
         } catch (error) {
             console.error(error.message)
         }
@@ -55,15 +32,14 @@ export default function ClassesPage() {
     return (
         <>
             <div className='heading'>
-                
                 <h1>Classes</h1>
                 <h4>View All available Gyeme classes!</h4>
                 {userType == "trainer" && <button className='add-class'>Add a class!</button>}
             </div>
-            <section>
+
+            { classes == "" ? <h1>loading</h1> : <section>
                 {classes.map((element) => (
                     <div className='class'> 
-                    
                         <figure>
                             <figcaption><strong>{element.name}</strong></figcaption>    
                             <img className='display-picture' src={element.image} width={300} height={320} alt="Picture of class" />
@@ -77,7 +53,7 @@ export default function ClassesPage() {
                         </div>
                     </div>
                 ))}
-            </section>
+            </section>}
         </>
     )
 }
