@@ -1,10 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react'
 import './App.css'
 import { useEffect, useReducer, useState } from 'react';
 import Admin from './components/adminpage/Admin.jsx';
 import NewUser from './components/adminpage/NewUser.jsx';
 import Home from './components/homepage/Home';
 import Navbar from './components/navbar/Navbar.jsx';
+import Blog from './components/blog/Blog.jsx';
+import AddClass from './components/classes/AddClass'
+import ClassesPage from './components/classes/ClassesPage'
+import Classes from './components/homepage/Classes'
+import TrainersPage from './components/trainers/TrainersPage'
+import Profile from './components/authentication/Profile';
+import { UserContext } from './hooks/UserContext'
 import Login from './components/loginpage/Login';
 import Notification from './components/notifications/Notification.jsx';
 import stateReducer from './stateReducer';
@@ -37,7 +45,8 @@ const initialState = {
 }
 
 function App() {
-
+  
+  const [roleId, setRoleId] = useState(null)
   const [state, dispatch] = useReducer(stateReducer, initialState)
   const { users, roles, notes } = state
 
@@ -68,15 +77,18 @@ function App() {
           />
           <Route 
             path="/trainers"
+            element={<TrainersPage />}
           />
           <Route 
             path="/classes"
+            element={<ClassesPage />}
           />
           <Route 
             path="/blog"
           />
           <Route 
             path="/profile"
+            element={<Profile />}
           />
           <Route
             path="/admin"
@@ -97,6 +109,10 @@ function App() {
           <Route
             path="/users/edit/:id"
             element={<EditUser/>}
+          />
+          <Route
+            path="/classes/new"
+            element={<AddClass />}
           />
         </Routes>
       </BrowserRouter>

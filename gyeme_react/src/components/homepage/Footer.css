@@ -1,0 +1,50 @@
+.footer-contact {
+    width: 100%;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    border: solid 0.2vw black;
+    padding-bottom: 1vh;
+}
+
+.footer-reception {
+    width: 100%;
+    grid-column: 2 / 3;
+    border: solid 0.2vw black;
+    padding-bottom: 1vh;
+}
+
+.reception-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-social {
+    width: 100%;
+    grid-column: 3 / 4;
+    border: solid 0.2vw black;
+    padding-bottom: 1vh;
+}
+
+.icon {
+    width: 3vw;
+}
+
+.icon-big {
+    width: 9vw;
+    padding: .4vmax;
+}
+
+.footer-heading {
+    margin-bottom: .5em;
+}
+
+.footer-contact div p {
+    font-size: 1.5vw;
+    margin-bottom: .5em;
+}
+
+.reception-list p {
+    font-size: 1.8vw;
+    margin-bottom: .5em
+}
