@@ -9,8 +9,9 @@ export default function NewUser() {
     const navigate = useNavigate();
     const { dispatch } = useContext(gymContext);
     const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState(['Member', 'Trainer', 'Admin']);
+    const [role, setRole] = useState([1, 2, 3]);
 
 
     function submit(e) {
@@ -18,8 +19,9 @@ export default function NewUser() {
         dispatch({
             type: "addUser",
             username: name,
+            email: email,
             password: password,
-            role: role,
+            role_id: role,
         });
         navigate("/admin")
     }
@@ -32,6 +34,9 @@ export default function NewUser() {
 
                 <label className='text-labels'>Username: </label>
                 <input value={name} onChange={(n) => setName(n.target.value)}></input>
+
+                <label className='text-labels'>Email: </label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)}></input>
 
                 <label className='text-labels'>Password: </label>
                 <input value={password} onChange={(p) => setPassword(p.target.value)}></input>

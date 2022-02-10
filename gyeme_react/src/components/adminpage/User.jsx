@@ -1,19 +1,24 @@
 import React, { useContext } from 'react';
 import './User.css'
 import { AiTwotoneDelete } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import gymContext from '../../gymContext';
+import EditUser from './EditUser';
+import { Fragment } from 'react/cjs/react.production.min';
+import { useParams } from 'react-router-dom';
 
 
-
-export default function User({ id, name, role }) {
+export default function User({ id, name, role_id }) {
   const navigate = useNavigate();
-  const { state: { users }, dispatch } = useContext(gymContext);
+  const params = useParams();
+  const { state: { users, roles }, dispatch } = useContext(gymContext);
+  //const role = roles.find((r) => r.id == role_id)
+  //console.log(role)
   
 
   function alertFunction() {
     if (confirm("Do you want to delete this user?")) {
-      deleteUser
+      deleteUser()
     } else {
       console.log('canceled')
     }
@@ -27,12 +32,36 @@ export default function User({ id, name, role }) {
     })
   }
 
+  function setupEdit(id, name, role) {
+    <Fragment key={id}>
+      <EditUser 
+        id={id}
+        user_name={name}
+        user_role={role}
+      />
+    </Fragment>
+    navigate(`/users/edit/${id}`)
+  }
+
+  function displayRole(role_id) {
+    if (role_id == 1) {
+      return "Member"
+    } else if (role_id == 2) {
+      return "Trainer"
+    } else if (role_id == 3) {
+      return "Admin"
+    }
+  }
+
   return(
     <div className='user'>
-      <h3>{name} - {role}</h3>
+      <h3>{name} - {displayRole(role_id)}</h3>
       <div className='user-crud-options'>
-        <button onClick={() => navigate("/users/new")}>Update</button>
-        <div onClick={deleteUser}><AiTwotoneDelete></AiTwotoneDelete></div>
+        <button onClick={() => { 
+          setupEdit(id, name, role_id) 
+          //navigate(`/users/edit/${id}`) 
+          }}>Update</button>
+        <div onClick={alertFunction}><AiTwotoneDelete></AiTwotoneDelete></div>
       </div>
     </div>
   )
