@@ -6,9 +6,7 @@ import './trainers_page.css'
 import Classes from '../homepage/Classes';
 import { useAuth0 } from '@auth0/auth0-react';
 
-import CheckRoleId from '../../hooks/CheckRoleId';
 
-//for each trainer: render the trainer div
 export default function TrainersPage() {
     const { user, isAuthenticated, isLoading } = useAuth0()
     const [role_id, setRole_id] = useState("")
@@ -18,10 +16,8 @@ export default function TrainersPage() {
             try {
                 const res = await fetch('http://localhost:5000/users')
                 const users = await res.json()
-                // console.log(users)
                 users.forEach(element => {
                     if (element.email == currentUserEmail) {
-                        // console.log(element.role_id)
                         console.log(element.role_id)
                         setRole_id(element.role_id)
                         return element.role_id
