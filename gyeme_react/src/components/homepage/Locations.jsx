@@ -1,20 +1,35 @@
-import React, { useContext } from 'react';
-import context from '../../appContext';
+import React, { useEffect, useState } from 'react';
 import './Locations.css';
 
 export default function Locations() {
-  const { state: { locations } } = useContext(context)
+  const [locations, setLocations] = useState("")
 
-  return(
+  const getLocations = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/locations")
+      const jsonData = await response.json()
+      setLocations(jsonData)
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
+
+  useEffect(() => {
+    getLocations()
+  }, [])
+
+  return (
     <>
-      {locations.map(location => (
-        <div id={`location${location.id}`} className='location'>
+      {locations == [] ? <h1>Loading ...</h1> : <>
+        {locations.map(location => (
+          <div id={`location${location.id}`} className='location'>
             <h2>{location.name}</h2>
-            <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
+            <img className='location-img' src={`/src/Images/location_${location.id}.jpg`}></img>
             <p>{location.address}</p>
-            <a href='/'>View Classes</a>
-        </div>
-      ))},
+            <a href='/classes'>View Classes</a>
+          </div>
+        ))}
+      </>}
     </>
   )
 }

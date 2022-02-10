@@ -1,39 +1,68 @@
-import { React, useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import './Articles.css'
 
 export default function Articles() {
-    const { state: { posts, comments } } = useContext(context)
+    const [posts, setPosts] = useState("")
+    const [comments, setComments] = useState("")
+
+    const getPosts = async () => {
+        try {
+            const posts_response = await fetch("http://localhost:5000/posts")
+            const posts_jsonData = await posts_response.json()
+            setPosts(posts_jsonData)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    const getComments = async () => {
+        try {
+            const comments_response = await fetch("http://localhost:5000/comments")
+            const comments_jsonData = await comments_response.json()
+            setComments(comments_jsonData)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    useEffect(() => {
+        getPosts()
+        getComments()
+    }, [])
 
     return (
         <div className='articles-container'>
-            {posts.map((post) => (
-                <div className='post'>
-                    <div className='article'>
-                        <span className='article-header'>
-                            <img className='article-avatar' src="src/Images/avatar.jpg" alt="avatar" />
-                            <h4 className='article-author'>{post.user.username}</h4>
-                            <p className='article-datetime'>{post.datetime}</p>
-                        </span>
-                            <h4 className='article-title'>{post.title}</h4>
-                        <span className='article-content'>
-                            <img className='article-image' src="src/Images/article.jpg" alt="article-image" />
-                            <p className='article-body'>{post.body}</p>
-                        </span>
+            {posts == [] ? <h1>Loading ...</h1> : <>
+                {posts.map((post) => (
+                    <div className='post'>
+                        <div className='article'>
+                            <span className='article-header'>
+                                <img className='article-avatar' src="src/Images/avatar.jpg" alt="avatar" />
+                                <h4 className='article-author'>{post.author}</h4>
+                                <h5 className='article-title'>{post.title}</h5>
+                            </span>
+                            <span className='article-content'>
+                                <img className='article-image' src="src/Images/article.jpg" alt="article-image" />
+                                <p className='article-body'>{post.body}</p>
+                            </span>
+                        </div>
+                        <div className='comments'>
+                            {comments == [] ? <h1>Loading ...</h1> : <>
+                                {comments.map((comment) => (
+                                    <div className='comment'>
+                                        <span className='comment-header'>
+                                            <img className='article-avatar-small' src="src/Images/avatar.jpg" alt="avatar" />
+                                            <h4 className='article-author-small'>{comment.author}</h4>
+                                        </span>
+                                        <p className='comment-body'>{comment.body}</p>
+                                    </div>
+                                ))}
+                            </>}
+                        </div>
                     </div>
-                    <div className='comments'>
-                        {comments.map((comment) => (
-                            <div className='comment'>
-                                <span className='comment-header'>
-                                    <img className='article-avatar-small' src="src/Images/avatar.jpg" alt="avatar" />
-                                    <h4 className='article-author-small'>{comment.user.username}</h4>
-                                    <p className='article-datetime-small'>{comment.datetime}</p>
-                                </span>
-                                <p className='comment-body'>{comment.body}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))}
+                ))}
+            </>}
         </div>
     )
 }
