@@ -39,6 +39,7 @@ export default function ClassesPage() {
             const response = await fetch("http://localhost:5000/classes")
             const jsonData = await response.json()
             setClasses(jsonData)
+            console.log(classes)
         } catch (error) {
             console.error(error.message)
         }

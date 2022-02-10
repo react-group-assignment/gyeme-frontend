@@ -9,39 +9,46 @@ import AddClass from './components/classes/AddClass'
 import ClassesPage from './components/classes/ClassesPage'
 import Classes from './components/homepage/Classes'
 import TrainersPage from './components/trainers/TrainersPage'
+import Profile from './components/authentication/Profile';
+import { UserContext } from './hooks/UserContext'
+
 
 
 function App() {
-  return (  
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route 
-          path="/"
-          element={<Home/>}
-        />
-        <Route 
-          path="/trainers"
-          element={<TrainersPage />}
-        />
-        <Route 
-          path="/classes"
-          element={<ClassesPage />}
-        />
-        <Route 
-          path="/blog"
-          element={<Blog/>}
-        />
-        <Route 
-          path="/profile"
-        />
-        <Route 
-          path="/classes/new"
-          element={<AddClass />}
-        />
-      </Routes>
-    </BrowserRouter>
+  const [roleId, setRoleId] = useState(null)
 
+  return (
+    <BrowserRouter>
+
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/trainers"
+            element={<TrainersPage />}
+          />
+          <Route
+            path="/classes"
+            element={<ClassesPage />}
+          />
+          <Route
+            path="/blog"
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+          <Route
+            path="/classes/new"
+            element={<AddClass />}
+          />
+        </Routes>
+
+
+    </BrowserRouter>
   )
 }
 
