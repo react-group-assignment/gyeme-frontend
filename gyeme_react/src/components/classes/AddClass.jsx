@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Class from './images/class.jpg';
 import brock from './images/brock.jpg'
 import eddie from './images/eddie.jpg'
@@ -9,11 +9,15 @@ import ejf from './images/ejf2.jpg'
 import ohp from './images/ohp_1.jpg'
 import './add-class.css'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function AddClass() {
   // Image 
   const [fileInputState, setFileInputState] = useState("")
   const [previewSource, setPreviewSource] = useState()
+  // Auth state
+  const { user, isAuthenticated, isLoading } = useAuth0()
+  const [role_id, setRole_id] = useState("")
 
   // Viewport sizes
   const { height, width } = useWindowDimensions();
@@ -73,13 +77,33 @@ export default function AddClass() {
     }
   }
 
-  if (width <= 1000) {
+  // Checking the role_id in the db in order to give permissions
+    useEffect(() => {
+        async function CheckRoleId(currentUserEmail) {
+            try {
+                const res = await fetch('http://localhost:5000/users')
+                const users = await res.json()
+                users.forEach(element => {
+                    if (element.email == currentUserEmail) {
+                        console.log(element.role_id)
+                        setRole_id(element.role_id)
+                        return element.role_id
+                    }
+                });
+            } catch (error) {
+                console.log(error.message)
+            }
+        console.log(role_id)
+        }
+
+        if (user) CheckRoleId(user.email)
+        }, [])
+
     return (
       <div className='container'>
         <form  >
           <img src={Class} alt="image of a gym class" height="240px" />
           <input type="file" name="image" value={fileInputState} onChange={handleFileInputChange} />
-          {/* <input type="submit" value="upload an image" /> */}
         </form>
 
         {previewSource && (<img src={previewSource} alt='your image' height="240px" width='240px' />)}
@@ -97,42 +121,9 @@ export default function AddClass() {
             <option value={true} >members only</option>
             <option value={false} >open to public</option>
           </select>
-          <input className='submit' type="submit" value="Create This Class!" />
+          {(role_id == 1 || role_id == 3) && <input className='submit' type="submit" value="Create This Class!" />}
         </form>
-        <a href="/">back to classes</a>
-      </div>
-    )
-  } else {
-    return (
-      <div className='container'>
-        <div className='images left'>
-          <img src={ohp} alt="image of a gym class" height="240px" width='240px' />
-          <img src={flex01} alt="image of a gym class" height="240px" width='240px' />
-          <img src={eddie} alt="image of a gym class" height="240px" width='240px' />
-        </div>
-        {/* <h1>{height} {width}</h1> */}
-        <form>
-          <img src={Class} alt="image of a gym class" height="240px" />
-          <input type="button" value="upload an image" />
-          <div>
-            <label htmlFor="">Class name</label>
-            <input type="text" />
-          </div>
-          <div >
-            <label htmlFor="">Class description</label>
-            <textarea></textarea>
-          </div>
-          <input className='submit' type="button" value="Create This Class!" />
-          <a href="/">back to classes</a>
-        </form>
-
-        <div className='images right'>
-          <img src={flex02} alt="image of a gym class" height="240px" width='240px' />
-          <img src={brock} alt="image of a gym class" height="240px" width='240px' />
-          <img src={ejf} alt="image of a gym class" height="240px" width='240px' />
-        </div>
+        <a href="/classes">back to classes</a>
       </div>
     )
   }
-
-}

@@ -36,6 +36,7 @@ function App() {
           />
           <Route
             path="/blog"
+            element={<Blog></Blog>}
           />
           <Route
             path="/profile"
