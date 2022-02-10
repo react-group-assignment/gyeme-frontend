@@ -25,8 +25,6 @@ export default function EditUser({ id, user_name, user_role}) {
         role: Number(role),
       }
     })
-    console.log(name, role)
-    console.log(users)
     navigate('/admin')
   }
 

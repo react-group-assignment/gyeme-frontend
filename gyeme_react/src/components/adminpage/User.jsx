@@ -12,9 +12,6 @@ export default function User({ id, name, role_id }) {
   const navigate = useNavigate();
   const params = useParams();
   const { state: { users, roles }, dispatch } = useContext(gymContext);
-  //const role = roles.find((r) => r.id == role_id)
-  //console.log(role)
-  
 
   function alertFunction() {
     if (confirm("Do you want to delete this user?")) {
@@ -24,11 +21,19 @@ export default function User({ id, name, role_id }) {
     }
   }
 
-  function deleteUser() {
+  async function deleteUser(user_id) {
     const index = users.findIndex(u => u.id === id);
+    const res = await fetch(`http://localhost:5000/users:${user_id}`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify()
+    })
+    const delUser = await res.json()
     dispatch({
       type: "deleteUser",
-      payload: index
+      payload: delUser
     })
   }
 
