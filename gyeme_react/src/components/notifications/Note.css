@@ -8,6 +8,16 @@
     align-items: center;
 }
 
-.note h3 {
+.note-message {
     margin-left: 15px;
+}
+
+.note-date {
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .note {
+        font-size: 10px;
+    }
 }

@@ -4,6 +4,16 @@
     justify-content: space-between;
 }
 
-.note-titles h1 {
-    margin-left: 20px;
+.note-title-one {
+    margin-left: 15px;
+}
+
+.note-title-two {
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .note-titles {
+       font-size: 13px; 
+    }
 }
