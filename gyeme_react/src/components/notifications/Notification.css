@@ -1,0 +1,19 @@
+.note-titles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note-title-one {
+    margin-left: 15px;
+}
+
+.note-title-two {
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .note-titles {
+       font-size: 13px; 
+    }
+}
