@@ -41,7 +41,7 @@ export default function Trainers() {
                     <div id={`homepage-trainer-list${location.id}`} className='homepage-trainer-list'>
                         <h3>Trainers</h3>
                         {users
-                            .filter((user) => user.location_id == location.id && user.role_id == 2)
+                            .filter((user) => user.location_id == location.id && user.role_id == 1)
                             .map(user => (
                                 <h5>{user.username}</h5>
                             ))}
