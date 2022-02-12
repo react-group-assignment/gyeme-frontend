@@ -4,7 +4,11 @@ import api from "../../api";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  //Current User role ID
   const [role_id, setRole_id] = useState("")
+
+  //Created user role ID
+  const [roleId, setRoleId] = useState(1)
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [locationId, setLocationId] = useState(1)
@@ -47,11 +51,7 @@ const Profile = () => {
 
   const createUser = async (newUser) => {
     try {
-      await api.post('users', {
-        method: 'POST',
-        body: JSON.stringify(newUser),
-        headers: { 'Content-Type': 'application/json' }
-      })
+      await api.post('users', newUser)
     } catch (error) {
       console.log(error.message)
     }

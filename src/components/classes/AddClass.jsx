@@ -50,11 +50,7 @@ export default function AddClass() {
   //Posts the class to the database
   const createClass = async (newClass) => {
     try {
-      await api.post('classes', {
-        method: 'POST',
-        body: JSON.stringify(newClass),
-        headers: { 'Content-Type': 'application/json' }
-      })
+      await api.post('classes', newClass)
       // Below will reset the image after uploading
       // setFileInputState('') 
       // setPreviewSource('')
@@ -82,9 +78,9 @@ export default function AddClass() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await api.get('users')
-                const users = await res.json()
-                users.forEach(element => {
+                const users = await api.get('users')
+                // const users = await res.json()
+                users.data.forEach(element => {
                     if (element.email == currentUserEmail) {
                         console.log(element.role_id)
                         setRole_id(element.role_id)
