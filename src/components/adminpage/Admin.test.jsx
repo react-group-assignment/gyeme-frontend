@@ -1,18 +1,26 @@
-import '@testing-library/jest-dom'
-import { describe, expect, it, beforeEach } from "vitest";
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import Admin from "./Admin.jsx";
-import App from '../../App.jsx';
-
+import { describe, expect, it } from 'vitest';
+import Admin from './Admin';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {render, fireEvent, screen} from '@testing-library/react';
 
 describe('App components tests', () => {
 
     beforeEach(() => {
-        render(<Admin/>)
+        render(
+            <Router>
+                <Routes>
+                    <Route
+                        to="/admin"
+                        element={<Admin/>}
+                    />
+                </Routes>
+            </Router>
+        )
     })
 
-    it('shows heading', () => {
-        expect(screen.getByRole('heading', {name: 'Gym Users'})).toBeInTheDocument()
+    test("Testing for titles", () => {
+        expect(screen.findByRole('h1', {name: "Gym Users"}))
+        expect(screen.findByRole('button', {name: "Create New User"}))
+        expect(screen.findByRole('UserList'))
     })
 })
