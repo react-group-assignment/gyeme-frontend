@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './Trainers.css';
+import api from '../../api';
 
 export default function Trainers() {
     const [locations, setLocations] = useState("")
@@ -8,9 +9,9 @@ export default function Trainers() {
 
     const getLocations = async () => {
         try {
-            const locations_response = await fetch("https://cryptic-waters-23853.herokuapp.com/locations")
-            const locations_jsonData = await locations_response.json()
-            setLocations(locations_jsonData)
+            const locations_response = await api.get("locations")
+            // const locations_jsonData = await locations_response.json()
+            setLocations(locations_response.data)
         } catch (error) {
             console.error(error.message)
         }
@@ -18,9 +19,9 @@ export default function Trainers() {
 
     const getUsers = async () => {
         try {
-            const users_response = await fetch("https://cryptic-waters-23853.herokuapp.com/users")
-            const users_jsonData = await users_response.json()
-            setUsers(users_jsonData)
+            const users_response = await api.get("users")
+            // const users_jsonData = await users_response.json()
+            setUsers(users_response.data)
         } catch (error) {
             console.error(error.message)
         }

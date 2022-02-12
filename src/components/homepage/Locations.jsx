@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Locations.css';
+import api from '../../api.js';
 
 export default function Locations() {
   const [locations, setLocations] = useState("")
 
   const getLocations = async () => {
     try {
-      const response = await fetch("https://cryptic-waters-23853.herokuapp.com/locations")
-      const jsonData = await response.json()
-      setLocations(jsonData)
+      const response = await api.get("locations")
+      // const jsonData = await response.json()
+      setLocations(response.data)
     } catch (error) {
       console.error(error.message)
     }

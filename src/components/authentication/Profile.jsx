@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import api from "../../api";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -12,9 +13,9 @@ const Profile = () => {
   useEffect(() => {
     async function CheckRoleId(currentUserEmail) {
         try {
-            const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
-            const users = await res.json()
-            users.forEach(element => {
+            const users = await api.get('users')
+            // const users = await res.json()
+            users.data.forEach(element => {
                 if (element.email == currentUserEmail) {
                     console.log(element.role_id)
                     setRole_id(element.role_id)
@@ -46,7 +47,7 @@ const Profile = () => {
 
   const createUser = async (newUser) => {
     try {
-      await fetch('https://cryptic-waters-23853.herokuapp.com/users', {
+      await api.post('users', {
         method: 'POST',
         body: JSON.stringify(newUser),
         headers: { 'Content-Type': 'application/json' }

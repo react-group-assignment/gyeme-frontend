@@ -10,9 +10,9 @@ export default function Articles() {
 
     const getUsers = async () => {
         try {
-            const users_response = await fetch("https://cryptic-waters-23853.herokuapp.com/users")
-            const users_jsonData = await users_response.json()
-            setUsers(users_jsonData)
+            const users_response = await api.get("users")
+            // const users_jsonData = await users_response.json()
+            setUsers(users_response.data)
         } catch (error) {
             console.error(error.message)
         }
@@ -20,9 +20,9 @@ export default function Articles() {
 
     const getPosts = async () => {
         try {
-            const posts_response = await fetch("https://cryptic-waters-23853.herokuapp.com/posts")
-            const posts_jsonData = await posts_response.json()
-            setPosts(posts_jsonData)
+            const posts_response = await api.get("posts")
+            // const posts_jsonData = await posts_response.json()
+            setPosts(posts_response.data)
         } catch (error) {
             console.error(error.message)
         }
@@ -30,9 +30,9 @@ export default function Articles() {
 
     const getComments = async () => {
         try {
-            const comments_response = await fetch("http://localhost:5000/comments")
-            const comments_jsonData = await comments_response.json()
-            setComments(comments_jsonData)
+            const comments_response = await api.get("comments")
+            // const comments_jsonData = await comments_response.json()
+            setComments(comments_response.data)
         } catch (error) {
             console.error(error.message)
         }
@@ -47,7 +47,7 @@ export default function Articles() {
 
 
     function findAuthor(user_id) {
-        const author = fetch(`http://localhost:5000/users/${parseInt(user_id)}`)
+        const author = api.get(`users/${parseInt(user_id)}`)
         return author
     }
 

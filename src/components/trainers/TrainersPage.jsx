@@ -5,6 +5,7 @@ import donald_pump from './trainer_images/donald_pump.jpg'
 import './trainers_page.css'
 import Classes from '../homepage/Classes';
 import { useAuth0 } from '@auth0/auth0-react';
+import api from '../../api';
 
 
 export default function TrainersPage() {
@@ -18,9 +19,9 @@ export default function TrainersPage() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
-                const users = await res.json()
-                users.forEach(element => {
+                const users = await api.get('users')
+                // const users = await res.json()
+                users.data.forEach(element => {
                     if (element.email == currentUserEmail) {
                         console.log(element.role_id)
                         setRole_id(element.role_id)
@@ -38,9 +39,9 @@ export default function TrainersPage() {
 
         const getTrainers = async () => {
             try {
-                const response = await fetch("https://cryptic-waters-23853.herokuapp.com/trainers")
-                const jsonData = await response.json()
-                setTrainers(jsonData)
+                const response = await api.get("trainers")
+                // const jsonData = await response.json()
+                setTrainers(response.data)
             } catch (error) {
                 console.error(error.message)
             }

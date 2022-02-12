@@ -10,6 +10,7 @@ import ohp from './images/ohp_1.jpg'
 import './add-class.css'
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { useAuth0 } from '@auth0/auth0-react';
+import api from '../../api';
 
 export default function AddClass() {
   // Image 
@@ -49,7 +50,7 @@ export default function AddClass() {
   //Posts the class to the database
   const createClass = async (newClass) => {
     try {
-      await fetch('http://localhost:5000/classes', {
+      await api.post('classes', {
         method: 'POST',
         body: JSON.stringify(newClass),
         headers: { 'Content-Type': 'application/json' }
@@ -81,7 +82,7 @@ export default function AddClass() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await fetch('http://localhost:5000/users')
+                const res = await api.get('users')
                 const users = await res.json()
                 users.forEach(element => {
                     if (element.email == currentUserEmail) {

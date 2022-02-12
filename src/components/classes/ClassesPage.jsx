@@ -7,6 +7,7 @@ import functional from './images/functional.jpg'
 import flexing from './images/flexing.jpg'
 import trash from './images/trash.png'
 import "./classes_page.css"
+import api from '../../api';
 
 
 export default function ClassesPage() {
@@ -18,9 +19,9 @@ export default function ClassesPage() {
 
     const getClasses = async () => {
         try {
-            const response = await fetch("https://cryptic-waters-23853.herokuapp.com/classes")
-            const jsonData = await response.json()
-            setClasses(jsonData)
+            const response = await api.get("classes")
+            // const jsonData = await response.json()
+            setClasses(response.data)
         } catch (error) {
             console.error(error.message)
         }
@@ -34,9 +35,9 @@ export default function ClassesPage() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
-                const users = await res.json()
-                users.forEach(element => {
+                const users = await api.get('users')
+                // const users = await res.json()
+                users.data.forEach(element => {
                     if (element.email == currentUserEmail) {
                         console.log(element.role_id)
                         setRole_id(element.role_id)

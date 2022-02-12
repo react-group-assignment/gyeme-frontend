@@ -3,7 +3,7 @@ import React from 'react'
 export default async function CheckRoleId(currentUserEmail) {
 
     try {
-        const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
+        const res = await api.get('users')
         const users = await res.json()
         // console.log(users)
         users.forEach(element => {

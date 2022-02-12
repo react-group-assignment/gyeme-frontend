@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './Articles.css'
+import api from '../../api';
 
 export default function Articles() {
     const [posts, setPosts] = useState("")
@@ -8,9 +9,9 @@ export default function Articles() {
 
     const getPosts = async () => {
         try {
-            const posts_response = await fetch("https://cryptic-waters-23853.herokuapp.com/posts")
-            const posts_jsonData = await posts_response.json()
-            setPosts(posts_jsonData)
+            const posts_response = await api.get("posts")
+            // const posts_jsonData = await posts_response.json()
+            setPosts(posts_response.data)
         } catch (error) {
             console.error(error.message)
         }
@@ -18,9 +19,9 @@ export default function Articles() {
 
     const getComments = async () => {
         try {
-            const comments_response = await fetch("https://cryptic-waters-23853.herokuapp.com/comments")
-            const comments_jsonData = await comments_response.json()
-            setComments(comments_jsonData)
+            const comments_response = await api.get("comments")
+            // const comments_jsonData = await comments_response.json()
+            setComments(comments_response)
         } catch (error) {
             console.error(error.message)
         }

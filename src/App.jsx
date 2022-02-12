@@ -50,21 +50,21 @@ function App() {
   const [state, dispatch] = useReducer(stateReducer, initialState)
   const { users, roles, notes } = state
 
-  useEffect(async () => {
-    const res = await fetch("https://cryptic-waters-23853.herokuapp.com/users")
-    const data = await res.json()
-    dispatch({
-      type: 'setUsers',
-      data: data
-    })
+  // useEffect(async () => {
+  //   const res = await api.get("users")
+  //   // const data = await res.json()
+  //   dispatch({
+  //     type: 'setUsers',
+  //     data: res.data
+  //   })
 
-    const roles_res = await fetch("https://cryptic-waters-23853.herokuapp.com/roles")
-    const roles_data = await roles_res.json()
-    dispatch({
-      type: 'setRoles',
-      data: roles_data
-    })
-  }, [])
+  //   const roles_res = await api.get("roles")
+  //   // const roles_data = await roles_res.json()
+  //   dispatch({
+  //     type: 'setRoles',
+  //     data: roles_res.data
+  //   })
+  // }, [])
 
   return (  
     <gymContext.Provider value={{state, dispatch}}>

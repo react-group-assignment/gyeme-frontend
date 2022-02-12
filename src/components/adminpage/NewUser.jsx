@@ -18,7 +18,7 @@ export default function NewUser() {
 
     async function submit(e) {
         e.preventDefault();
-        const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users', {
+        const res = await api.get('users', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
