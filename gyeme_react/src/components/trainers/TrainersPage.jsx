@@ -50,26 +50,25 @@ export default function TrainersPage() {
       getTrainers()
     }, [])
     
-
-
-    if (isLoading) {
-        return <div>Loading ...</div>;
-    }
+    // if (isLoading) {
+    //     return <div>Loading ...</div>;
+    // }
 
     console.log(trainers)
 
     return (
         <>
-             <h1>{role_id}</h1>
+             {/* <h1>{role_id}</h1> */}
             <div className='heading'>
-                <h1>Trainers</h1>
+                <h1> {trainers.length} Trainers</h1>
                 <h4>View All available Gyeme trainers!</h4>
             </div>
-            <section>
+            { trainers == "" ? <h1>Loading</h1> :
+            <section> 
                 {trainers.map((trainer) => (
                     <div className='trainer'>
                         <figure>
-                            <figcaption><strong>{trainer.trainerName}</strong></figcaption>
+                            <figcaption><strong>{trainer.username}</strong></figcaption>
                             <img className='display-picture' src={trainer.image || ronny} width={176} height={137} alt="trainer's display picture" />
                             <a href="/">Contact this trainer!</a>
                         </figure>
@@ -78,7 +77,7 @@ export default function TrainersPage() {
                         </div>
                     </div>
                 ))}
-            </section>
+            </section> }
         </>
     )
 }
