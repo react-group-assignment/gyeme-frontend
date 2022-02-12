@@ -18,7 +18,7 @@ export default function TrainersPage() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await fetch('http://localhost:5000/users')
+                const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
                 const users = await res.json()
                 users.forEach(element => {
                     if (element.email == currentUserEmail) {
@@ -38,7 +38,7 @@ export default function TrainersPage() {
 
         const getTrainers = async () => {
             try {
-                const response = await fetch("http://localhost:5000/trainers")
+                const response = await fetch("https://cryptic-waters-23853.herokuapp.com/trainers")
                 const jsonData = await response.json()
                 setTrainers(jsonData)
             } catch (error) {

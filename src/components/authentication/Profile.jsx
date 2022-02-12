@@ -12,7 +12,7 @@ const Profile = () => {
   useEffect(() => {
     async function CheckRoleId(currentUserEmail) {
         try {
-            const res = await fetch('http://localhost:5000/users')
+            const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
             const users = await res.json()
             users.forEach(element => {
                 if (element.email == currentUserEmail) {
@@ -46,7 +46,7 @@ const Profile = () => {
 
   const createUser = async (newUser) => {
     try {
-      await fetch('http://localhost:5000/users', {
+      await fetch('https://cryptic-waters-23853.herokuapp.com/users', {
         method: 'POST',
         body: JSON.stringify(newUser),
         headers: { 'Content-Type': 'application/json' }

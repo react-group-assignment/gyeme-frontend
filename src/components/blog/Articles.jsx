@@ -8,7 +8,7 @@ export default function Articles() {
 
     const getPosts = async () => {
         try {
-            const posts_response = await fetch("http://localhost:5000/posts")
+            const posts_response = await fetch("https://cryptic-waters-23853.herokuapp.com/posts")
             const posts_jsonData = await posts_response.json()
             setPosts(posts_jsonData)
         } catch (error) {
@@ -18,7 +18,7 @@ export default function Articles() {
 
     const getComments = async () => {
         try {
-            const comments_response = await fetch("http://localhost:5000/comments")
+            const comments_response = await fetch("https://cryptic-waters-23853.herokuapp.com/comments")
             const comments_jsonData = await comments_response.json()
             setComments(comments_jsonData)
         } catch (error) {

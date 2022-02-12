@@ -23,7 +23,7 @@ export default function User({ id, name, role_id }) {
 
   async function deleteUser(user_id) {
     const index = users.findIndex(u => u.id === id);
-    const res = await fetch(`http://localhost:5000/users:${user_id}`, {
+    const res = await fetch(`https://cryptic-waters-23853.herokuapp.com/users:${user_id}`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
