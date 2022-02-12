@@ -2,6 +2,7 @@ import React from 'react';
 import './Classes.css'
 import dumbell from './images/dumbell_icon.png'
 
+
 export default function Classes() {
     return (
         <>

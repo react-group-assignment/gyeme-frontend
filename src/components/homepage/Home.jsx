@@ -4,7 +4,7 @@ import Locations from './Locations.jsx';
 import Trainers from './Trainers.jsx';
 import Footer from './Footer.jsx';
 import './Home.css';
-import api from '../../api.js';
+
 
 export default function Home() {
 
