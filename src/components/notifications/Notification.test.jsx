@@ -1,17 +1,31 @@
-import '@testing-library/jest-dom'
-import { describe, expect, it, beforeEach } from "vitest";
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { describe, expect, it } from 'vitest';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {render, fireEvent, screen} from '@testing-library/react';
 import Notification from './Notification'
 
 
-describe('App components tests', () => {
+describe('Notifications tests', () => {
 
     beforeEach(() => {
-        render(<Notification/>)
+        render(
+            <Router>
+                <Routes>
+                    <Route
+                        //to="/admin"
+                        element={<Notification/>}
+                    />
+                </Routes>
+            </Router>
+        )
     })
 
-    it('shows heading', () => {
-        expect(screen.getByRole('heading', {name: 'Gym Users'})).toBeInTheDocument()
+    it('find heading', () => {
+        expect(screen.findByRole('h1', {name: 'Messages'}))
+        expect(screen.findByRole('h1', {name: 'Dates'}))
     })
+
+    it('find note', () => {
+        expect(screen.findByRole('Note'))
+    })
+
 })
