@@ -50,8 +50,8 @@ export default function Articles() {
                     <div className='post'>
                         <div className='article'>
                             <span className='article-header'>
-                                <img className='article-avatar' src={user.image || "../../src/Images/avatar.jpg"} alt="avatar" />
                                 {users == [] ? <h4>Loading Author...</h4> : <>
+                                <img className='article-avatar' src={user.image || "../../src/Images/avatar.jpg"} alt="avatar" />
                                     {users
                                         .filter((user) => user.id == post.user_id)
                                         .map((user) => (
