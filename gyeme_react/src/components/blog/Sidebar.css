@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.images {
+.blog-images {
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,25 @@
     align-items: center;
 }
 
-.image {
+.blog-image {
     max-width: 20vw;
     max-height: 20vh;
+}
+
+.trainer-page-head {
+    margin: 0;
+    display: grid;
+    grid-template-areas: 
+    "avatar trainer"
+    "avatar location"
+    ;
+    grid-template-columns: 8vw 1fr;
+    grid-template-rows: 5vw 1fr;
+}
+
+.trainer-avatar {
+    width: 8vw;
+    height: 8vw;
+    border: solid 2px black;
+    grid-area: avatar;
 }

@@ -1,0 +1,23 @@
+.note {
+    display: flex;
+    border-radius: 20px;
+    background-color: gray;
+    margin-bottom: 20px;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-message {
+    margin-left: 15px;
+}
+
+.note-date {
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 900px) {
+    .note {
+        font-size: 10px;
+    }
+}

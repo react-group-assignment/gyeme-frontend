@@ -55,7 +55,6 @@ a {
     display: flex;
     flex-direction: column;
     margin: 5%;
-    opacity: 55%;
 }
 
 .right {

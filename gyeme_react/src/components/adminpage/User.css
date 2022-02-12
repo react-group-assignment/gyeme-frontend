@@ -1,0 +1,25 @@
+.user {
+    display: flex;
+    border-radius: 20px;
+    background-color: gray;
+    margin-bottom: 20px;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user h3 {
+    margin-left: 15px;
+}
+
+.user button {
+    margin-right: 15px;
+    height: 1.5rem;
+    font-size: 15px;
+}
+
+.user-crud-options {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}

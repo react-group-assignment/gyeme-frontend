@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Locations.css';
 
 export default function Locations() {
-  return(
+  const [locations, setLocations] = useState("")
+
+  const getLocations = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/locations")
+      const jsonData = await response.json()
+      setLocations(jsonData)
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
+
+  useEffect(() => {
+    getLocations()
+  }, [])
+
+  return (
     <>
-        <div className='location1'>
-            <h2>Lifter Academy</h2>
-            <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
-            <p>Level 3/116 Adelaide St, Brisbane City QLD 4000</p>
-            <a href='/'>View Classes</a>
-        </div>
-        <div className='location2'>
-            <h2>The Wide House</h2>
-            <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
-            <p>1600 Pennsylvania Avenue NW, Washington, DC 20500, United States</p>
-            <a href='/'>View Classes</a>
-        </div>
-        <div className='location3'>
-            <h2>Gains City</h2>
-            <img className='location-img' src='/src/Images/google-placeholder.jpg'></img>
-            <p>2 Jurong East Street 21, 03 - 14, Singapore 609601</p>
-            <a href='/'>View Classes</a>
-        </div>
+      {locations == [] ? <h1>Loading ...</h1> : <>
+        {locations.map(location => (
+          <div id={`location${location.id}`} className='location'>
+            <h2>{location.name}</h2>
+            <img className='location-img' src={`/src/Images/location_${location.id}.jpg`}></img>
+            <p>{location.address}</p>
+            <a href='/classes'>View Classes</a>
+          </div>
+        ))}
+      </>}
     </>
   )
 }
