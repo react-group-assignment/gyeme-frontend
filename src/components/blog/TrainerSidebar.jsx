@@ -15,16 +15,12 @@ export default function TrainerSidebar() {
                         <label htmlFor="">Post Title</label>
                         <input type="text" />
                     </div>
-                    <input type="button" value="upload an image" />
-                    <div >
+                    <div>
                         <label htmlFor="">Post Body</label>
                         <textarea></textarea>
                     </div>
                     <input className='submit' type="button" value="Create Post" />
                 </form>
-            </div>
-            <div className='member-view'>
-
             </div>
         </div>
     )

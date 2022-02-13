@@ -51,14 +51,14 @@ function App() {
   const { users, roles, notes } = state
 
   useEffect(async () => {
-    const res = await fetch("http://localhost:5000/users")
+    const res = await fetch("https://cryptic-waters-23853.herokuapp.com/users")
     const data = await res.json()
     dispatch({
       type: 'setUsers',
       data: data
     })
 
-    const roles_res = await fetch("http://localhost:5000/roles")
+    const roles_res = await fetch("https://cryptic-waters-23853.herokuapp.com/roles")
     const roles_data = await roles_res.json()
     dispatch({
       type: 'setRoles',

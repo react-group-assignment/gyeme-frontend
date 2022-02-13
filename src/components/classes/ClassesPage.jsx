@@ -18,7 +18,7 @@ export default function ClassesPage() {
 
     const getClasses = async () => {
         try {
-            const response = await fetch("http://localhost:5000/classes")
+            const response = await fetch("https://cryptic-waters-23853.herokuapp.com/classes")
             const jsonData = await response.json()
             setClasses(jsonData)
         } catch (error) {
@@ -34,7 +34,7 @@ export default function ClassesPage() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await fetch('http://localhost:5000/users')
+                const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
                 const users = await res.json()
                 users.forEach(element => {
                     if (element.email == currentUserEmail) {
