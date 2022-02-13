@@ -28,9 +28,6 @@ export default function Trainers() {
 
     useEffect(() => {
         getLocations()
-    }, [])
-
-    useEffect(() => {
         getUsers()
     }, [])
 

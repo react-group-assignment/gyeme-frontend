@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {render, fireEvent, screen} from '@testing-library/react';
-import Notification from './Notification'
+import Note from './Note'
 
 
 describe('Notifications tests', () => {
+    const text = "Hello this is a test"
+    const date = "10/10/10"
 
     beforeEach(() => {
         render(
@@ -12,20 +14,20 @@ describe('Notifications tests', () => {
                 <Routes>
                     <Route
                         //to="/admin"
-                        element={<Notification/>}
+                        element={<Note text={text} date={date}/>}
                     />
                 </Routes>
             </Router>
         )
     })
 
-    it('find heading', () => {
-        expect(screen.findByRole('h1', {name: 'Messages'}))
-        expect(screen.findByRole('h1', {name: 'Dates'}))
+
+    it('Display text', () => {
+        expect(screen.findByRole('h3', { name: text}))
     })
 
-    it('find note', () => {
-        expect(screen.findByRole('Note'))
+    it('Display a date', () => {
+        expect(screen.findByRole('h3', { name: date}))
     })
 
 })
