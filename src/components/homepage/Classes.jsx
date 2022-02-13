@@ -40,7 +40,7 @@ export default function Classes() {
                     <div id={`homepage-classes${location.id}`} className='homepage-classes-list'>
                         {classes == [] ? <h1>Loading ...</h1> : <>
                             {classes
-                                .filter((gymClass) => gymClass.location_id == location.id)
+                                .filter((gymClass) => (gymClass.location_id == null) || (gymClass.location_id == 1) )
                                 .map(gymClass => (
                                     <div className='homepage-class-list'>
                                         <h4>{gymClass.name}</h4>
