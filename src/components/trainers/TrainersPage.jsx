@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import ronny from './trainer_images/ronny_cop.jpg'
 import jacked_johnson from './trainer_images/jacked_johnson.jpg'
 import donald_pump from './trainer_images/donald_pump.jpg'
-import './trainers_page.css'
 import Classes from '../homepage/Classes';
 import { useAuth0 } from '@auth0/auth0-react';
 import './trainers_page.css'

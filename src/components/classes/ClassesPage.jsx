@@ -8,7 +8,6 @@ import flexing from './images/flexing.jpg'
 import trash from './images/trash.png'
 import "./classes_page.css"
 
-
 export default function ClassesPage() {
     const [classes, setClasses] = useState("")
 

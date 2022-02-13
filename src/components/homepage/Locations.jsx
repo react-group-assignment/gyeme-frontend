@@ -24,7 +24,7 @@ export default function Locations() {
         {locations.map(location => (
           <div id={`location${location.id}`} className='location'>
             <h2>{location.name}</h2>
-            <img className='location-img' src={`/src/Images/location_${location.id}.jpg`}></img>
+            <img className='location-img' src={`/src/Images/location_${location.id}.jpg` ||} alt="location image not found"></img>
             <p>{location.address}</p>
             <a href='/classes'>View Classes</a>
           </div>

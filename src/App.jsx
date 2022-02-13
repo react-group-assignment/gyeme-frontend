@@ -58,12 +58,12 @@ function App() {
       data: data
     })
 
-    const roles_res = await fetch("https://cryptic-waters-23853.herokuapp.com/roles")
-    const roles_data = await roles_res.json()
-    dispatch({
-      type: 'setRoles',
-      data: roles_data
-    })
+    // const roles_res = await fetch("https://cryptic-waters-23853.herokuapp.com/roles")
+    // const roles_data = await roles_res.json()
+    // dispatch({
+    //   type: 'setRoles',
+    //   data: roles_data
+    // })
   }, [])
 
   return (  
