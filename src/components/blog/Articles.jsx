@@ -3,8 +3,19 @@ import { useEffect, useState } from 'react';
 import './Articles.css'
 
 export default function Articles() {
+    const [users, setUsers] = useState("")
     const [posts, setPosts] = useState("")
     const [comments, setComments] = useState("")
+
+    const getUsers = async () => {
+        try {
+            const users_response = await fetch("http://localhost:5000/users")
+            const users_jsonData = await users_response.json()
+            setUsers(users_jsonData)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
 
     const getPosts = async () => {
         try {
@@ -27,6 +38,7 @@ export default function Articles() {
     }
 
     useEffect(() => {
+        getUsers()
         getPosts()
         getComments()
     }, [])
@@ -38,8 +50,15 @@ export default function Articles() {
                     <div className='post'>
                         <div className='article'>
                             <span className='article-header'>
-                                <img className='article-avatar' src="src/Images/avatar.jpg" alt="avatar" />
-                                <h4 className='article-author'>{post.author}</h4>
+                                {users == [] ? <h4>Loading Author...</h4> : <>
+                                <img className='article-avatar' src={user.image || "../../src/Images/avatar.jpg"} alt="avatar" />
+                                    {users
+                                        .filter((user) => user.id == post.user_id)
+                                        .map((user) => (
+                                            <h4 className='article-author'>{user.username}</h4>
+                                        ))
+                                    }
+                                </>}
                                 <h5 className='article-title'>{post.title}</h5>
                             </span>
                             <span className='article-content'>
@@ -49,15 +68,24 @@ export default function Articles() {
                         </div>
                         <div className='comments'>
                             {comments == [] ? <h1>Loading ...</h1> : <>
-                                {comments.map((comment) => (
-                                    <div className='comment'>
-                                        <span className='comment-header'>
-                                            <img className='article-avatar-small' src="src/Images/avatar.jpg" alt="avatar" />
-                                            <h4 className='article-author-small'>{comment.author}</h4>
-                                        </span>
-                                        <p className='comment-body'>{comment.body}</p>
-                                    </div>
-                                ))}
+                                {comments
+                                    .filter((comment => comment.post_id == post.id))
+                                    .map((comment) => (
+                                        <div className='comment'>
+                                            <span className='comment-header'>
+                                                {users == [] ? <h4>Loading Author...</h4> : <>
+                                                <img className='article-avatar-small' src={user.image || "../../src/Images/avatar.jpg"} alt="avatar" />
+                                                    {users
+                                                        .filter((user) => user.id == comment.user_id)
+                                                        .map((user) => (
+                                                            <h4 className='comment-author'>{user.username}</h4>
+                                                        ))
+                                                    }
+                                                </>}
+                                            </span>
+                                            <p className='comment-body'>{comment.body}</p>
+                                        </div>
+                                    ))}
                             </>}
                         </div>
                     </div>

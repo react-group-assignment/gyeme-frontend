@@ -1,28 +1,21 @@
-.classes1 {
+.homepage-classes-list {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border: solid 0.2vw black;
+}
+
+#homepage-classes1 {
     grid-row: 2 / 3;
-    border: solid 0.2vw black;
 }
 
-.classes2 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+#homepage-classes2 {
     grid-row: 3 / 4;
-    border: solid 0.2vw black;
 }
 
-.classes3 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+#homepage-classes3 {
     grid-row: 4 / 5;
-    border: solid 0.2vw black;
 }
 
 .homepage-class-list {

@@ -13,6 +13,19 @@ export default function Sidebar() {
                 <img className='blog-image' src="/src/Images/blog_2.jpg" alt="A happy trainer training a happy member" />
                 <img className='blog-image' src="/src/Images/blog_3.jpg" alt="Another happy trainer training another happy member" />
             </div>
+            {/* <div className='create-post-form'>
+                <form className='form-items' action="submit">
+                    <div>
+                        <label htmlFor="">Post Title</label>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <label htmlFor="">Post Body</label>
+                        <textarea></textarea>
+                    </div>
+                    <input className='submit' type="button" value="Create Post" />
+                </form>
+            </div> */}
         </div>
     )
 }
