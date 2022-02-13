@@ -5,7 +5,7 @@ import donald_pump from './trainer_images/donald_pump.jpg'
 import './trainers_page.css'
 import Classes from '../homepage/Classes';
 import { useAuth0 } from '@auth0/auth0-react';
-import 'trainers_page.css'
+import './trainers_page.css'
 
 
 export default function TrainersPage() {
