@@ -1,31 +1,27 @@
 import { describe, expect, it } from 'vitest';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {render, fireEvent, screen} from '@testing-library/react';
-import Notification from './Notification'
+import Sidebar from './Sidebar'
 
-
-describe('Notifications tests', () => {
+describe('Sidebar component tests', () => {
 
     beforeEach(() => {
         render(
             <Router>
                 <Routes>
                     <Route
-                        //to="/admin"
-                        element={<Notification/>}
+                        element={<Sidebar/>}
                     />
                 </Routes>
             </Router>
         )
     })
 
-    it('find heading', () => {
-        expect(screen.findByRole('h1', {name: 'Messages'}))
-        expect(screen.findByRole('h1', {name: 'Dates'}))
+    it('shows titles', () => {
+        expect(screen.findByRole('h3', {name: "Blog Page"}))
     })
 
-    it('find note', () => {
-        expect(screen.findByRole('Note'))
+    it('displays paragraphs', () => {
+        expect(screen.findByRole('p', {name: "What's happening at Gyeme?"}))
     })
-
 })

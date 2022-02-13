@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {render, fireEvent, screen} from '@testing-library/react';
-import Notification from './Notification'
+import Navbar from './Navbar'
 
 
 describe('Notifications tests', () => {
@@ -12,20 +12,19 @@ describe('Notifications tests', () => {
                 <Routes>
                     <Route
                         //to="/admin"
-                        element={<Notification/>}
+                        element={<Navbar/>}
                     />
                 </Routes>
             </Router>
         )
     })
 
-    it('find heading', () => {
-        expect(screen.findByRole('h1', {name: 'Messages'}))
-        expect(screen.findByRole('h1', {name: 'Dates'}))
-    })
 
-    it('find note', () => {
-        expect(screen.findByRole('Note'))
+    it('Should contain links', () => {
+        expect(screen.findByRole('Link', { name: 'Home'}))
+        expect(screen.findByRole('Link', { name: 'Trainers'}))
+        expect(screen.findByRole('Link', { name: 'Classes'}))
+        expect(screen.findByRole('Link', { name: 'Blog'}))
+        expect(screen.findByRole('Link', { name: 'My Profile'}))
     })
-
 })
