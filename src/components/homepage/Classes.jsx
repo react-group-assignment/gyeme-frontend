@@ -9,7 +9,7 @@ export default function Classes() {
 
     const getLocations = async () => {
         try {
-            const locations_response = await fetch("http://localhost:5000/locations")
+            const locations_response = await fetch("https://cryptic-waters-23853.herokuapp.com/locations")
             const locations_jsonData = await locations_response.json()
             setLocations(locations_jsonData)
         } catch (error) {
@@ -19,7 +19,7 @@ export default function Classes() {
 
     const getClasses = async () => {
         try {
-            const classes_response = await fetch("http://localhost:5000/classes")
+            const classes_response = await fetch("https://cryptic-waters-23853.herokuapp.com/classes")
             const classes_jsonData = await classes_response.json()
             setClasses(classes_jsonData)
         } catch (error) {
