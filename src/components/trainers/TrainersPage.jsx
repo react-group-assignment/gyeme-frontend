@@ -5,6 +5,7 @@ import donald_pump from './trainer_images/donald_pump.jpg'
 import './trainers_page.css'
 import Classes from '../homepage/Classes';
 import { useAuth0 } from '@auth0/auth0-react';
+import './trainers_page.css'
 
 
 export default function TrainersPage() {
@@ -59,20 +60,20 @@ export default function TrainersPage() {
     return (
         <>
              {/* <h1>{role_id}</h1> */}
-            <div className='heading'>
+            <div className='trainer-page-heading'>
                 <h1> {trainers.length} Trainers</h1>
                 <h4>View All available Gyeme trainers!</h4>
             </div>
             { trainers == "" ? <h1>Loading</h1> :
             <section> 
                 {trainers.map((trainer) => (
-                    <div className='trainer'>
+                    <div className='trainer-page-trainer'>
                         <figure>
                             <figcaption><strong>{trainer.username}</strong></figcaption>
                             <img className='display-picture' src={trainer.image || ronny} width={176} height={137} alt="trainer's display picture" />
                             <a href="/">Contact this trainer!</a>
                         </figure>
-                        <div className='class-list'>
+                        <div className='trainer-page-class-list'>
                             <p>{trainer.trainerDescription}</p>
                         </div>
                     </div>
