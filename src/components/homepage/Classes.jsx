@@ -37,15 +37,16 @@ export default function Classes() {
             {locations == [] ? <h1>Loading ...</h1> : <>
                 {locations.map((location) => (
                     <div id={`homepage-classes${location.id}`} className='homepage-classes-list'>
-                        {/* <h3>Classes</h3> */}
-                        {classes
-                            .filter((gymClass) => gymClass.location_id == location.id)
-                            .map(gymClass => (
-                                <div className='homepage-class-list'>
-                                    <h4>{gymClass.name}</h4>
-                                    <img className='dumbell' src={dumbell} alt="dumbell"></img>
-                                </div>
-                            ))}
+                        {classes == [] ? <h1>Loading ...</h1> : <>
+                            {classes
+                                .filter((gymClass) => gymClass.location_id == location.id)
+                                .map(gymClass => (
+                                    <div className='homepage-class-list'>
+                                        <h4>{gymClass.name}</h4>
+                                        <img className='dumbell' src={dumbell} alt="dumbell"></img>
+                                    </div>
+                                ))}
+                        </>}
                     </div>
                 ))}
             </>}
