@@ -6,7 +6,7 @@ export default function Locations() {
 
   const getLocations = async () => {
     try {
-      const response = await fetch("http://localhost:5000/locations")
+      const response = await fetch("https://cryptic-waters-23853.herokuapp.com/locations")
       const jsonData = await response.json()
       setLocations(jsonData)
     } catch (error) {
