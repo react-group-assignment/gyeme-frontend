@@ -47,7 +47,7 @@ export default function Articles() {
 
 
     function findAuthor(user_id) {
-        const author = fetch(`https://cryptic-waters-23853.herokuapp.com/users/${parseInt(user_id)}`)
+        const author = fetch(`http://localhost:5000/users/${parseInt(user_id)}`)
         return author
     }
 
