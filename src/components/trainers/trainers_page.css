@@ -1,18 +1,18 @@
-/* .heading{
+.trainer-page-heading{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1.5fr 1fr;
     border: 1px solid red;
 }
 
-.trainer{
+.trainer-page-trainer{
     border: 1px solid red;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
-.class-list{
+.trainer-page-class-list{
     grid-column-start: 2;
     grid-row-start: 1;
     border: 1px solid red;
@@ -52,4 +52,4 @@ p {
         justify-content: center;
     }
 
-} */
+}
