@@ -22,6 +22,7 @@ export default function Classes() {
             const classes_response = await fetch("https://cryptic-waters-23853.herokuapp.com/classes")
             const classes_jsonData = await classes_response.json()
             setClasses(classes_jsonData)
+            console.log(classes)
         } catch (error) {
             console.error(error.message)
         }
