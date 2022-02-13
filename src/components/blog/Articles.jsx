@@ -9,7 +9,7 @@ export default function Articles() {
 
     const getUsers = async () => {
         try {
-            const users_response = await fetch("http://localhost:5000/users")
+            const users_response = await fetch("https://cryptic-waters-23853.herokuapp.com/users")
             const users_jsonData = await users_response.json()
             setUsers(users_jsonData)
         } catch (error) {

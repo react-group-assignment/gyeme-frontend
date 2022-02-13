@@ -49,7 +49,7 @@ export default function AddClass() {
   //Posts the class to the database
   const createClass = async (newClass) => {
     try {
-      await fetch('http://localhost:5000/classes', {
+      await fetch('https://cryptic-waters-23853.herokuapp.com/classes', {
         method: 'POST',
         body: JSON.stringify(newClass),
         headers: { 'Content-Type': 'application/json' }
@@ -81,7 +81,7 @@ export default function AddClass() {
     useEffect(() => {
         async function CheckRoleId(currentUserEmail) {
             try {
-                const res = await fetch('http://localhost:5000/users')
+                const res = await fetch('https://cryptic-waters-23853.herokuapp.com/users')
                 const users = await res.json()
                 users.forEach(element => {
                     if (element.email == currentUserEmail) {
